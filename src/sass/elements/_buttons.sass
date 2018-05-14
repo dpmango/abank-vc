@@ -7,28 +7,33 @@ button
   &:focus
     outline: none
 
-.btn
-  display: inline-block
+.button
+  display: inline-flex
+  align-items: center
+  justify-content: center
   position: relative
   text-align: center
-  transition: all $transitionSpeed ease-in-out
+  color: white
+  background: rgba(240, 50, 38, .85)
+  border: 1px solid rgba(240, 50, 38, .85)
+  margin: 0
+  padding: 0
+  cursor: pointer
+  outline: 0
+  user-select: none
+  font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'Roboto Rouble', sans-serif
+  white-space: nowrap
+  transition-duration: 200ms
+  transition-property: background, border-color, color, width
+  transition-timing-function: ease
+  border-radius: 4px
   &:focus, &:active
     outline: none
-  &--block
-    display: block
-    width: 100%
-
-  &-example
-    // please use paddings instead of line-height to control btn height
-    background: $colorOrange
-    font-size: 20px
-    padding: 15px 30px
-    color: white
-    transition: .25s $ease
-    transform-origin: center bottom
-    box-shadow: none
-    will-change: box-shadow, transform
-    &:hover
-      transform: scale(1.05) translateY(-5px)
-      background: rgba($colorOrange, .9)
-      box-shadow: 0 15px 10px -15px rgba($fontColor, .4)
+  &_size_l
+    height: 50px
+    padding: 0 25px
+    font-size: 18px
+    line-height: 48px
+  &:hover
+    background-color: rgba(240, 50, 38, 1)
+    border-color: rgba(240, 50, 38, 1)

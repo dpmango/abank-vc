@@ -4,5 +4,28 @@ title: ALPHA BANK - Virtual Card
 extends shared/_layout
 block content
   
-  .container
-    h1 Hello
+  // hero block
+  .hero
+    .container
+      .hero__wrapper
+        .hero__left
+          .hero__image
+            .hero__phone
+              img(src='img/hero-phone.png' srcset='img/hero-phone@2x.png 2x')
+              .hero__card
+                img(src='img/hero-card.png' srcset='img/hero-card@2x.png 2x')
+                  
+        .hero__right
+          .hero__content
+            .hero__logo
+              +icon('ico-logo')
+            h1.hero__heading Виртуальная карта <br>за 60 секунд для оплаты <br>бизнес-расходов
+            .hero__description Полноценная карта, только без пластика <br> в приложении «Альфа-Бизнес Мобайл»
+            .hero__cta
+              a(href="#").button.button_size_l
+                span Выпустить карту
+  
+  // info
+  .info
+    .container
+      h2.heading.heading_size_l Виртуальная карта для оплаты бизнес-расходов
