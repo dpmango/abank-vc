@@ -5,7 +5,7 @@ $sprite: (
 		width: 142px,
 		height: 40px,
 		total-width: 144px,
-		total-height: 90px,
+		total-height: 140px,
 		image: '../img/sprite.png'
 	),
 	google-play-logo: (
@@ -14,7 +14,25 @@ $sprite: (
 		width: 144px,
 		height: 40px,
 		total-width: 144px,
-		total-height: 90px,
+		total-height: 140px,
+		image: '../img/sprite.png'
+	),
+	social-facebook: (
+		offset-x: 0px,
+		offset-y: -100px,
+		width: 40px,
+		height: 40px,
+		total-width: 144px,
+		total-height: 140px,
+		image: '../img/sprite.png'
+	),
+	social-vk: (
+		offset-x: -50px,
+		offset-y: -100px,
+		width: 40px,
+		height: 40px,
+		total-width: 144px,
+		total-height: 140px,
 		image: '../img/sprite.png'
 	),
 );
@@ -78,4 +96,10 @@ $sprite: (
 	}
 	.icon-google-play-logo {
 		@include sprite(google-play-logo)
+	}
+	.icon-social-facebook {
+		@include sprite(social-facebook)
+	}
+	.icon-social-vk {
+		@include sprite(social-vk)
 	}
