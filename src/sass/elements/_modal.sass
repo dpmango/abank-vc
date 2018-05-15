@@ -10,55 +10,75 @@ html.mfp-helper
     height: 100%
     -webkit-transform: translateZ(0)
 
-#small-dialog
+.modal
   background: white
-  padding: 20px 30px
+  padding: 30px 30px
   text-align: left
   max-width: 600px
   margin: 40px auto
+  border-radius: 4px
+  box-shadow: 0 2px 15px rgba(black, .1)
   position: relative
+  &__close
+    position: absolute
+    top: 0px
+    right: 0px
+    -webkit-apperance: none
+    background: transparent
+    box-shadow: none
+    border: 0
+    font-size: 0
+    padding: 12px
+    cursor: pointer
+    transition: .25s $ease
+    .ico
+      font-size: 25px
+    &:hover
+      opacity: .7
+  &__heading
+    font-size: 16px
+    font-weight: 700
+  &__table
+    margin: 20px -15px
+    border-collapse: collapse
+    width: 100%
+    thead
+      font-size: 13px
+      td
+        border-width: 2px
+    tbody
+      font-size: 16px
+      font-weight: 700
+      tr
+        &:last-child
+          td
+            border-width: 2px
+    td
+      padding: 15px
+      border-bottom: 1px solid $borderColor
 
+  &__note
+    max-width: 480px
+    font-size: 13px
 
 // Fade-zoom animation for first dialog
 
 .popup-buble
-  .popup-dialog
+  .modal
     opacity: 0
     transition: all 0.2s ease-in-out
     transform: scale(0.8)
-  &.mfp-ready .popup-dialog
+  &.mfp-ready .modal
     opacity: 1
     transform: scale(1)
-  &.mfp-removing .popup-dialog
+  &.mfp-removing .modal
     transform: scale(0.8)
     opacity: 0
   &.mfp-bg
-    background: $colorGreen
+    background: #f3f4f5
     opacity: 0
     transition: opacity 0.3s $ease
   &.mfp-ready.mfp-bg
     opacity: 1
-  &.mfp-removing.mfp-bg
-    opacity: 0
-
-
-
-// Fade-move animation
-.my-mfp-slide-bottom
-  .zoom-anim-dialog
-    opacity: 0
-    transition: all 0.2s ease-out
-    transform: translateY(-20px) perspective(600px) rotateX(10deg)
-  &.mfp-ready .zoom-anim-dialog
-    opacity: 1
-    transform: translateY(0) perspective(600px) rotateX(0)
-  &.mfp-removing .zoom-anim-dialog
-    opacity: 0
-    transform: translateY(-10px) perspective(600px) rotateX(10deg)
-  &.mfp-bg
-    opacity: 0
-    transition: opacity 0.3s ease-out
-  &.mfp-ready.mfp-bg
-    opacity: 0.8
   &.mfp-removing.mfp-bg
     opacity: 0

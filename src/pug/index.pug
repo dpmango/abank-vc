@@ -30,8 +30,8 @@ block content
     .container.container--narrow
       h2.heading.heading_size_l Виртуальная карта для оплаты бизнес-расходов
     .container
-      .info__holder
-        .info__holder-wrap
+      .plato
+        .plato__wrap
           .info__list
             // list element
             .info__list-el
@@ -87,6 +87,12 @@ block content
                   span 1
               .step-nav__content
                 span.step-nav__name Установите приложение <br>«Альфа-Бизнес Мобайл».
+                .step-nav__download
+                  a(href="#" target="_blank")
+                    i.icon.icon-appstore-logo
+                  a(href="#" target="_blank")
+                    i.icon.icon-google-play-logo
+                      
             //el
             .step-nav__el(js-toggle-video data-video="1")
               .step-nav__icon
@@ -119,5 +125,47 @@ block content
                 source(src='video/video-2_release.mp4')
               video(data-video-id="3" muted)
                 source(src='video/video-3_put.mp4')
-                              
-                
+  
+  .condition
+    .container
+      .plato
+        .plato__wrap.plato__wrap--gray
+          h2.heading.heading_size_l Условия обслуживания виртуальной карты <br>для бизнеса
+          .condition__row
+            .condition__el
+              .condition__el-name 100 000₽
+              .condition__el-description Месячный лимит на снятие <br>наличных в банкоматах <br>Альфа-Банка.
+            .condition__el
+              .condition__el-name 0,2%
+              .condition__el-description Комиссия за внесение наличных<br>на виртуальную карту <br>в банкоматах Альфа-Банка.
+            .condition__el
+              .condition__el-name 0₽
+              .condition__el-description Покупки в интернете <br>и в магазинах, без комиссий <br>и ограничений по сумме.
+                        
+          a(href="#cashModal" js-popup).condition__more 
+            span Снятие наличных в банкоматах Альфа-Банка
+          
+          #cashModal.mfp-hide.modal
+            .modal__heading Комиссия за снятие наличных в банкоматах, <br>суммарный объём
+            table.modal__table
+              thead
+                tr
+                  td Сумма (включительно)
+                  td Комиссия
+              tbody
+                tr
+                  td До 1 500 000₽
+                  td 2,5%
+                tr
+                  td От 1 500 000₽ до 2 000 000₽
+                  td 3%
+                tr
+                  td От 2 000 000₽ до 3 000 000₽
+                  td 4%
+                tr
+                  td От 3 000 000₽ до 5 000 000₽
+                  td 8%
+                tr
+                  td Свыше 5 000 000₽
+                  td 10%
+            .modal__note Под суммарным объемом выдачи наличных денежных средств за отчетный период понимается объем денежных средств в валюте РФ, выданных накопительным итогом по чеку и / или по банковской карте.

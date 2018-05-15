@@ -203,6 +203,7 @@ $(document).ready(function(){
       midClick: true,
       removalDelay: 300,
       mainClass: 'popup-buble',
+      closeMarkup: '<button title="%title%" type="button" class="modal__close"><svg class="ico ico-close"><use xlink:href="img/sprite.svg#ico-close"></use></svg></button>',
       callbacks: {
         beforeOpen: function() {
           startWindowScroll = _window.scrollTop();
@@ -220,6 +221,9 @@ $(document).ready(function(){
   function closeMfp(){
     $.magnificPopup.close();
   }
+
+  _document
+    .on('click', '.modal__close', closeMfp)
 
   ////////////
   // UI
