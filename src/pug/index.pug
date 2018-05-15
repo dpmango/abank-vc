@@ -11,21 +11,113 @@ block content
         .hero__left
           .hero__image
             .hero__phone
-              img(src='img/hero-phone.png' srcset='img/hero-phone@2x.png 2x')
-              .hero__card
+              img.wow(data-animation-delay=".2s" src='img/hero-phone.png' srcset='img/hero-phone@2x.png 2x')
+              .hero__card.wow(data-animation-delay="1s")
                 img(src='img/hero-card.png' srcset='img/hero-card@2x.png 2x')
                   
         .hero__right
           .hero__content
-            .hero__logo
+            .hero__logo.wow
               +icon('ico-logo')
-            h1.hero__heading Виртуальная карта <br>за 60 секунд для оплаты <br>бизнес-расходов
-            .hero__description Полноценная карта, только без пластика <br> в приложении «Альфа-Бизнес Мобайл»
-            .hero__cta
+            h1.hero__heading.wow(data-animation-delay=".2s") Виртуальная карта <br>за 60 секунд для оплаты <br>бизнес-расходов
+            .hero__description.wow(data-animation-delay=".4s") Полноценная карта, только без пластика <br> в приложении «Альфа-Бизнес Мобайл»
+            .hero__cta.wow(data-animation-delay=".6s")
               a(href="#").button.button_size_l
                 span Выпустить карту
   
   // info
   .info
-    .container
+    .container.container--narrow
       h2.heading.heading_size_l Виртуальная карта для оплаты бизнес-расходов
+    .container
+      .info__holder
+        .info__holder-wrap
+          .info__list
+            // list element
+            .info__list-el
+              .info__list-icon
+                +icon('ico-clock')
+              .info__list-content
+                .heading.heading_size_m Выпуск карты за 60 секунд
+                p Без заполнения документов, звонков в колл-центр и выезда курьера.
+
+            // list element
+            .info__list-el
+              .info__list-icon
+                +icon('ico-fingerprint')
+              .info__list-content
+                .heading.heading_size_m Покупки в одно касание
+                p Оплачивайте покупки в интернете <br>и торговых точках.
+            
+            // list element
+            .info__list-el
+              .info__list-icon
+                +icon('ico-drop')
+              .info__list-content
+                .heading.heading_size_m Бесплатный выпуск и обслуживание
+                p Открытие и обслуживание неограниченного количества карт — 0₽.
+          
+          // card
+          .info__card
+            .info__card-fly
+              img(src='img/card-fly.png' srcset='img/card-fly@2x.png 2x')
+    
+    // next container
+    .container.container--narrow
+      h2.heading.heading_size_l Пользуйтесь виртуальной картой для бизнеса как привычным пластиком
+      .info__benefits-heading Привяжите карту к платежной системе смартфона и сразу же совершайте <br>покупки и работайте с наличными средствами.
+
+      .info__benefits
+        +icon('ico-cart')
+        +icon('ico-atm')
+        +icon('ico-contactless')
+        
+  
+  // STEPS
+  .steps
+    .container.container--narrow
+      .steps__wrapper
+        .steps__left
+          h2.heading.heading_size_l Откройте виртуальную карту <br>в четыре шага в мобильном банке
+          // step nav
+          .step-nav
+            .step-nav__el
+              .step-nav__icon
+                .icon.icon-circle
+                  span 1
+              .step-nav__content
+                span.step-nav__name Установите приложение <br>«Альфа-Бизнес Мобайл».
+            //el
+            .step-nav__el(js-toggle-video data-video="1")
+              .step-nav__icon
+                .icon.icon-circle
+                  span 2
+              .step-nav__content
+                span.step-nav__name Оставьте заявку на открытие счёта <br>в приложении. 
+            //el
+            .step-nav__el(js-toggle-video data-video="2")
+              .step-nav__icon
+                .icon.icon-circle
+                  span 3
+              .step-nav__content
+                span.step-nav__name После открытия счёта зайдите <br>в мобильный банк и выпустите карту.
+            //el
+            .step-nav__el(js-toggle-video data-video="3")
+              .step-nav__icon
+                .icon.icon-circle
+                  span 4
+              .step-nav__content
+                span.step-nav__name Привяжите карту к платежной системе. <br>Карта готова для использования.
+ 
+        .steps__right
+          .steps__video
+            img.steps__video-phone(src='img/iphone-x.png' srcset='img/iphone-x@2x.png 2x')
+            .steps__video-frame(js-video-logic)
+              video(data-video-id="1" muted)
+                source(src='video/video-1_start.mp4')
+              video(data-video-id="2" muted)
+                source(src='video/video-2_release.mp4')
+              video(data-video-id="3" muted)
+                source(src='video/video-3_put.mp4')
+                              
+                

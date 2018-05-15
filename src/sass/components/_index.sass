@@ -30,7 +30,6 @@
     max-width: 50%
     min-width: 1px
     min-height: 0
-    outline: 1px solid tomato
 
   &__image
     margin-top: auto
@@ -82,7 +81,207 @@
     margin-top: 30px
     margin-bottom: 25px
     font-size: 30px
+  &_size_m
+    margin-top: 20px
+    margin-bottom: 20px
+    font-size: 22px
+
+.icon
+  display: inline-block
+  vertical-align: middle
+  background-position: 50%
+  background-repeat: no-repeat
+  &-circle
+    size: 42px
+    border-radius: 50%
+    border: 1px solid $fontTetriary
+    display: flex
+    align-items: center
+    justify-content: center
+    text-align: center
 
 .info
   background: #f3f4f5
-  padding: 90px 0
+  padding: 60px 0 90px
+  &__holder
+    margin-top: 45px
+    margin-bottom: 70px
+    position: relative
+    &-wrap
+      position: relative
+      z-index: 2
+      background: white
+      border-radius: 14px
+      padding: 50px
+      display: flex
+      align-items: center
+      margin-left: -15px
+      margin-right: -15px
+    &::after
+      display: inline-block
+      content: ''
+      position: absolute
+      z-index: 1
+      top: -20px
+      left: -50px
+      right: -50px
+      bottom: -70px
+      background: url('../img/infoHolder-bg.png') no-repeat center top
+      background-size: 100% 100%
+
+  &__list
+    flex: 0 1 55%
+    padding-left: 15px
+    max-width: 55%
+    &-el
+      display: flex
+      margin-bottom: 40px
+      &:last-child
+        margin-bottom: 0
+
+    &-icon
+      flex: 0 0 60px
+      max-width: 60px
+      .ico
+        overflow: visible
+        &-fingerprint
+          font-size: 37px
+        &-clock
+          font-size: 33px
+        &-drop
+          font-size: 45px
+
+    &-content
+      flex: 0 1 100%
+      max-width: 100%
+      .heading
+        margin-top: 10px
+        margin-bottom: 10px
+      p
+        color: $fontSecondary
+        margin: 0
+        & + p
+          margin-top: 1em
+
+  &__card
+    padding: 0 15px
+    flex: 0 1 45%
+    max-width: 45%
+    margin-bottom: -7%
+    &-fly
+      margin-right: -30%
+      text-align: left
+      img
+        width: 100%
+
+  &__benefits
+    &-heading
+      font-size: 22px
+
+
+
+.steps
+  padding: 65px 0 50px
+  &__wrapper
+    display: flex
+    margin-left: -15px
+    margin-right: -15px
+  &__left
+    flex: 1 1 auto
+    max-width: 100%
+    min-width: 1px
+    min-height: 0
+    padding: 0 40px 0 15px
+    .heading
+      margin-top: 0
+  &__right
+    flex: 0 0 280px
+    max-width: 280px
+    min-width: 1px
+    min-height: 0
+    padding: 0 15px
+
+  &__video
+    position: relative
+    font-size: 0
+    pointer-events: none
+    &::after
+      display: inline-block
+      content: ''
+      position: absolute
+      z-index: 1
+      top: 35px
+      bottom: -40px
+      left: -15px
+      right: -15px
+      background: url('../img/iphone-x-shadow.png') no-repeat center
+      background-size: cover
+
+    &-phone
+      position: relative
+      z-index: 3
+      width: 100%
+    &-frame
+      position: absolute
+      z-index: 2
+      top: 2.3%
+      left: 5.7%
+      right: 6.3%
+      bottom: 2.5%
+      overflow: hidden
+      border-radius: 25px
+      video
+        position: absolute 0
+        width: 100%
+        opacity: 0
+        transition: opacity .25s $ease
+        &.is-active
+          opacity: 1
+
+    &-frame
+      background: $fontColor
+
+.step-nav
+  margin-top: 50px
+  &__el
+    position: relative
+    display: flex
+    margin-bottom: 25px
+    &:last-child
+      margin-bottom: 0
+    &::after
+      display: inline-block
+      content: ''
+      position: absolute
+      z-index: 1
+      right: 0
+      top: 0
+      bottom: 0
+      left: 0
+      height: 80px
+      background: url('../img/stepNav-arrow.png') no-repeat right center
+      opacity: 0
+      transform: translate(-15px,0)
+      transition: .25s $ease
+    &.is-active
+      &::after
+        opacity: 1
+        transform: translate(0,0)
+
+  &__icon
+    flex: 0 0 60px
+    span
+      font-size: 22px
+      font-weight: 700
+
+  &__content
+    position: relative
+    z-index: 2
+    flex: 0 1 auto
+    max-width: 100%
+
+  &__name
+    display: inline-block
+    margin-top: 9px
+    font-size: 22px
+    line-height: 1.27

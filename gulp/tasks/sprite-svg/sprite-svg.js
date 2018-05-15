@@ -60,11 +60,11 @@ gulp.task('sprite:svg', function() {
     }))
     .pipe(gCheerio({
         run: function($, file) {
-            $('[fill]:not([fill="currentColor"])').removeAttr('fill');
-            $('[stroke]').removeAttr('stroke');
-            $('[style]').removeAttr('style');
-            $('[opacity]').removeAttr('opacity');
-            $('[fill-opacity]').removeAttr('fill-opacity');
+            // $('[fill]:not([fill="currentColor"])').removeAttr('fill');
+            // $('[stroke]').removeAttr('stroke');
+            // $('[style]').removeAttr('style');
+            // $('[opacity]').removeAttr('opacity');
+            // $('[fill-opacity]').removeAttr('fill-opacity');
         },
         parserOptions: { xmlMode: true }
     }))
