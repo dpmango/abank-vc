@@ -33,7 +33,9 @@
     font-size: 30px
     line-height: 40px
     display: inline-block
+    transition: color .25s $ease
     &:hover
+      color: $brandColor
 
   &__socials
     display: flex
@@ -42,6 +44,12 @@
     a
       display: inline-block
       margin-right: 20px
+
++r($desktop)
+  .footer
+    &__wrapper
+      span
+        font-size: 12px
 
 +r($tablet)
   .footer

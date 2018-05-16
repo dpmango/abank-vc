@@ -31,8 +31,23 @@
     font-weight: 700
     cursor: pointer
     display: inline-block
+    transition: color .25s $ease
     span
       border-bottom: 1px dashed rgba(11, 31, 53, .6)
+      transition: border .25s $ease
+    &:hover
+      color: rgba($fontColor, .8)
+      span
+        border-color: rgba(11, 31, 53, .4)
++r($desktop)
+  .condition
+    &__el
+      &-name
+        font-size: 24px
+      &-description
+        font-size: 14px
+    &__more
+      font-size: 24px
 
 +r($tablet)
   .condition

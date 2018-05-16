@@ -81,7 +81,7 @@
       background: url('../img/stepNav-arrow.png') no-repeat right center
       opacity: 0
       transform: translate(-15px,0)
-      transition: .25s $ease
+      transition: opacity .25s $ease, transform .25s $ease
     &.is-active
       &::after
         opacity: 1
@@ -119,6 +119,17 @@
         opacity: .75
 
 
++r($desktop)
+  .steps
+    padding: 45px 0 40px
+    &__left
+      padding-right: 15px
+
+  .step-nav
+    &__name
+      font-size: 20px
+
+
 +r($tablet)
   .steps
     &__wrapper
@@ -140,6 +151,7 @@
     &__name
       font-size: 13px
     &__download
+      max-width: 230px
       margin-top: 10px
       margin-bottom: -5px
       a

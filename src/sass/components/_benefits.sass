@@ -52,6 +52,18 @@
 
 +r($desktop)
   .benefits
+    padding: 40px 0 70px
+    &__wrapper
+      margin-top: 60px
+    &__list
+      margin-right: 0
+      &-name
+        font-size: 20px
+      &-desc
+        font-size: 14px
+
++r($tablet)
+  .benefits
     padding: 40px 0
     &__wrapper
       flex-direction: column
@@ -87,6 +99,7 @@
       &-desc
         font-size: 13px
     &__download
+      max-width: 230px
       a
         margin-right: 0
         &:last-child
