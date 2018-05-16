@@ -15,11 +15,11 @@ $(document).ready(function(){
     initPopups();
     initScrollMonitor();
     initVideos();
+    initVideos();
+    _window.on('resize', debounce(initVideos, 200))
     initSmartBanner();
     initTeleport();
 
-    // development helper
-    _window.on('resize', debounce(setBreakpoint, 200))
   }
 
   // this is a master function which should have all functionality
@@ -42,7 +42,7 @@ $(document).ready(function(){
     });
   }
 
-  // smartbanner
+  // smartbanner (app store, gplay)
   function initSmartBanner(){
     $.smartbanner({
       title: "Альфа-Бизнес", // What the title of the app should be in the banner (defaults to <title>)
@@ -85,105 +85,49 @@ $(document).ready(function(){
 
   // VIDEO
   function initVideos(){
-    $('video[data-video-id="1"]').on('ended', function(){
-      playVideo(2);
-    });
-    $('video[data-video-id="2"]').on('ended', function(){
-      setTimeout(function(){
-        playVideo(3);
-      }, 1000)
-    });
-    $('video[data-video-id="3"]').on('ended', function(){
-      setTimeout(function(){
-        playVideo(1);
-      }, 2000)
-    });
-
-    // refactor
-    var allVideos = $('[js-video-logic] video');
-    var videos = [];
-    allVideos.each(function(i, video){
-      var $video = $(video);
-      var videoDuration = 0;
-
-      $video.on('loadedmetadata', function(){
-        videoDuration = Math.round(video.duration);
-        videos.push({
-          video: $video,
-          videoDuration: videoDuration + 1, // 1 second delay for slides change
-          index: i + 1
-        });
-
-        // check that all ready for the last element
-        if ( allVideos.length == i + 1 ){
-          // checkAvailable();
-          playVideo(1);
-        };
+    if ( _window.width() > 768 ){
+      $('video[data-video-id="1"]').on('ended', function(){
+        playVideo(2);
       });
-    });
-    //
-    // function checkAvailable(){
-    //   var interval = setInterval(function () {
-    //     var allReady = false;
-    //     $.each(videos, function(i, video){
-    //       video.videoDuration > 0 ? allReady = true : allReady = false
-    //
-    //       if ( allVideos.length == i + 1 ){
-    //         if ( allReady ){
-    //           startPlaying();
-    //           clearInterval(interval);
-    //         }
-    //       }
-    //     });
-    //   }, 100);
-    // }
-    //
-    // function startPlaying(){
-    //   var interval;
-    //   var secondsPlaying = 0;
-    //   var iteration = 1;
-    //
-    //   interval = setInterval(function () {
-    //     var firstVideoAfter = 1;
-    //     var secondVideoAfter = videos[0].videoDuration
-    //     var thirdVideoAfter = videos[0].videoDuration + videos[1].videoDuration
-    //     var totalVideoTime = videos[0].videoDuration + videos[1].videoDuration + videos[2].videoDuration
-    //     // console.log(firstVideoAfter,secondVideoAfter )
-    //
-    //     var countdown = Math.abs(secondsPlaying - ( totalVideoTime * iteration ));
-    //     $.each(videos, function(i, video){
-    //       if ( video.index == 1){
-    //         if (countdown >= firstVideoAfter * iteration ){
-    //           playVideo(1)
-    //         } else {
-    //           stopVideo(1);
-    //         }
-    //       }
-    //
-    //       if ( video.index == 2){
-    //         if (countdown >= secondVideoAfter * iteration){
-    //           playVideo(2)
-    //         } else {
-    //           stopVideo(2);
-    //         }
-    //       }
-    //
-    //       if ( video.index == 3){
-    //         if (countdown >= thirdVideoAfter * iteration){
-    //           playVideo(3)
-    //         } else {
-    //           stopVideo(3);
-    //         }
-    //       }
-    //     })
-    //
-    //     if ( secondsPlaying > totalVideoTime * iteration ){
-    //       iteration++
-    //     }
-    //     secondsPlaying++
-    //   }, 1000);
-    //
-    // }
+      $('video[data-video-id="2"]').on('ended', function(){
+        setTimeout(function(){
+          playVideo(3);
+        }, 1000)
+      });
+      $('video[data-video-id="3"]').on('ended', function(){
+        setTimeout(function(){
+          playVideo(1);
+        }, 2000)
+      });
+
+      // refactor
+      var allVideos = $('[js-video-logic] video');
+      var videos = [];
+      allVideos.each(function(i, video){
+        var $video = $(video);
+        var videoDuration = 0;
+
+        // load sources
+        var sources = video.querySelector('source');
+        sources.setAttribute('src', sources.getAttribute('data-src'));
+
+        video.load();
+        $video.on('loadedmetadata', function(){
+          videoDuration = Math.round(video.duration);
+          videos.push({
+            video: $video,
+            videoDuration: videoDuration + 1, // 1 second delay for slides change
+            index: i + 1
+          });
+
+          // check that all ready for the last element
+          if ( allVideos.length == i + 1 ){
+            // checkAvailable();
+            playVideo(1);
+          };
+        });
+      });
+    }
 
     function playVideo(index){
       // cleanup
@@ -207,18 +151,6 @@ $(document).ready(function(){
       //   }
       // });
     }
-    // function stopVideo(index){
-    //   $.each(videos, function(i, video){
-    //     if ( video.index == index ){
-    //       var targetVideo = video.video;
-    //       targetVideo.removeClass('is-active');
-    //       targetVideo.get(0).pause();
-    //
-    //       // update selector class
-    //       $('.step-nav__el[data-video="'+video.index+'"]').removeClass('is-active');
-    //     }
-    //   });
-    // }
 
   }
 
@@ -290,7 +222,6 @@ $(document).ready(function(){
         }
       }
     });
-
   }
 
   function closeMfp(){
@@ -342,54 +273,86 @@ $(document).ready(function(){
           'visibility': 'visible'
         });
       }
-      // elWatcher.exitViewport(throttle(function() {
-      //   $(el).removeClass(animationClass);
-      //   $(el).css({
-      //     'animation-name': 'none',
-      //     'animation-delay': 0,
-      //     'visibility': 'hidden'
-      //   });
-      // }, 100));
     });
 
   }
 
-  //////////
-  // MEDIA Condition helper function
-  //////////
-  function mediaCondition(cond){
-    var disabledBp;
-    var conditionMedia = cond.substring(1);
-    var conditionPosition = cond.substring(0, 1);
 
-    if (conditionPosition === "<") {
-      disabledBp = _window.width() < conditionMedia;
-    } else if (conditionPosition === ">") {
-      disabledBp = _window.width() > conditionMedia;
-    }
+  //
+  // function checkAvailable(){
+  //   var interval = setInterval(function () {
+  //     var allReady = false;
+  //     $.each(videos, function(i, video){
+  //       video.videoDuration > 0 ? allReady = true : allReady = false
+  //
+  //       if ( allVideos.length == i + 1 ){
+  //         if ( allReady ){
+  //           startPlaying();
+  //           clearInterval(interval);
+  //         }
+  //       }
+  //     });
+  //   }, 100);
+  // }
+  //
+  // function startPlaying(){
+  //   var interval;
+  //   var secondsPlaying = 0;
+  //   var iteration = 1;
+  //
+  //   interval = setInterval(function () {
+  //     var firstVideoAfter = 1;
+  //     var secondVideoAfter = videos[0].videoDuration
+  //     var thirdVideoAfter = videos[0].videoDuration + videos[1].videoDuration
+  //     var totalVideoTime = videos[0].videoDuration + videos[1].videoDuration + videos[2].videoDuration
+  //     // console.log(firstVideoAfter,secondVideoAfter )
+  //
+  //     var countdown = Math.abs(secondsPlaying - ( totalVideoTime * iteration ));
+  //     $.each(videos, function(i, video){
+  //       if ( video.index == 1){
+  //         if (countdown >= firstVideoAfter * iteration ){
+  //           playVideo(1)
+  //         } else {
+  //           stopVideo(1);
+  //         }
+  //       }
+  //
+  //       if ( video.index == 2){
+  //         if (countdown >= secondVideoAfter * iteration){
+  //           playVideo(2)
+  //         } else {
+  //           stopVideo(2);
+  //         }
+  //       }
+  //
+  //       if ( video.index == 3){
+  //         if (countdown >= thirdVideoAfter * iteration){
+  //           playVideo(3)
+  //         } else {
+  //           stopVideo(3);
+  //         }
+  //       }
+  //     })
+  //
+  //     if ( secondsPlaying > totalVideoTime * iteration ){
+  //       iteration++
+  //     }
+  //     secondsPlaying++
+  //   }, 1000);
+  //
+  // }
 
-    return disabledBp
-  }
-
-  //////////
-  // DEVELOPMENT HELPER
-  //////////
-  function setBreakpoint(){
-    var wHost = window.location.host.toLowerCase()
-    var displayCondition = wHost.indexOf("localhost") >= 0 || wHost.indexOf("surge") >= 0
-    if (displayCondition){
-      var wWidth = _window.width();
-
-      var content = "<div class='dev-bp-debug'>"+wWidth+"</div>";
-
-      $('.page').append(content);
-      setTimeout(function(){
-        $('.dev-bp-debug').fadeOut();
-      },1000);
-      setTimeout(function(){
-        $('.dev-bp-debug').remove();
-      },1500)
-    }
-  }
+  // function stopVideo(index){
+  //   $.each(videos, function(i, video){
+  //     if ( video.index == index ){
+  //       var targetVideo = video.video;
+  //       targetVideo.removeClass('is-active');
+  //       targetVideo.get(0).pause();
+  //
+  //       // update selector class
+  //       $('.step-nav__el[data-video="'+video.index+'"]').removeClass('is-active');
+  //     }
+  //   });
+  // }
 
 });
