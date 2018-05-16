@@ -1,13 +1,15 @@
 .wow
   visibility: hidden
 
-.wowFadeUp, .wowFadeDown, .wowFadeLeft, .wowFadeRight
+.wowFadeUp, .wowFadeDown, .wowFadeLeft, .wowFadeRight,
   opacity: 0
   // added with scrollmonitor
   // animation-name: wowFade;
+  backface-visibility: hidden
+  will-change: transform
   animation-fill-mode: forwards
-  animation-timing-function: ease-in
-  animation-duration: 0.3s
+  animation-timing-function: ease-out
+  animation-duration: 0.75s
 
 .wowFadeUp
   transform: translate3d(0, 20px, 0)
@@ -25,3 +27,17 @@
   to
     opacity: 1
     transform: translate3d(0, 0, 0)
+
+.wowCardGrow
+  opacity: 1
+  // added with scrollmonitor
+  // animation-name: wowGrow;
+  transform-origin: right bottom
+  animation-fill-mode: forwards
+  animation-timing-function: ease-out
+  animation-duration: 0.75s
+  transform: translate3d(-68px, 25px, 0) scale(.52)
+
+@keyframes wowGrow
+  to
+    transform: translate3d(0, 0, 0) scale(1)

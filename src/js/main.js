@@ -15,6 +15,7 @@ $(document).ready(function(){
     initPopups();
     initScrollMonitor();
     initVideos();
+    initSmartBanner();
 
     // development helper
     _window.on('resize', debounce(setBreakpoint, 200))
@@ -40,12 +41,46 @@ $(document).ready(function(){
     });
   }
 
+  // smartbanner
+  function initSmartBanner(){
+    $.smartbanner({
+      title: "Альфа-Бизнес", // What the title of the app should be in the banner (defaults to <title>)
+      author: "AO ALFA-BANK", // What the author of the app should be in the banner (defaults to <meta name="author"> or hostname)
+      price: 'FREE', // Price of the app
+      appStoreLanguage: 'ru', // Language code for App Store
+      inAppStore: 'Загрузить в App Store', // Text of price for iOS
+      inGooglePlay: 'В Google Play', // Text of price for Android
+      // inAmazonAppStore: 'In the Amazon Appstore',
+      // inWindowsStore: 'In the Windows Store', // Text of price for Windows
+      GooglePlayParams: null, // Aditional parameters for the market
+      icon: null, // The URL of the icon (defaults to <meta name="apple-touch-icon">)
+      iconGloss: null, // Force gloss effect for iOS even for precomposed
+      url: null, // The URL for the button. Keep null if you want the button to link to the app store.
+      button: 'Смотреть', // Text for the install button
+      scale: 'auto', // Scale based on viewport size (set to 1 to disable)
+      speedIn: 300, // Show animation speed of the banner
+      speedOut: 400, // Close animation speed of the banner
+      daysHidden: 15, // Duration to hide the banner after being closed (0 = always show banner)
+      daysReminder: 90, // Duration to hide the banner after "VIEW" is clicked *separate from when the close button is clicked* (0 = always show banner)
+      force: null, // Choose 'ios', 'android' or 'windows'. Don't do a browser check, just always show this banner
+      hideOnInstall: true, // Hide the banner after "VIEW" is clicked.
+      layer: false, // Display as overlay layer or slide down the page
+      iOSUniversalApp: true, // If the iOS App is a universal app for both iPad and iPhone, display Smart Banner to iPad users, too.
+      appendToSelector: 'body', //Append the banner to a specific selector
+    })
+  }
 
   // Prevent # behavior
 	_document
     .on('click', '[href="#"]', function(e) {
   		e.preventDefault();
   	})
+    .on('click', '[js-scrollTo]', function(){
+      var target = $(this).data('scroll-to');
+      $('body, html').animate({
+          scrollTop: $('[data-target="'+target+'"]').offset().top}, 1000);
+      return false;
+    })
 
   // VIDEO
   function initVideos(){
@@ -85,69 +120,69 @@ $(document).ready(function(){
         };
       });
     });
-
-    function checkAvailable(){
-      var interval = setInterval(function () {
-        var allReady = false;
-        $.each(videos, function(i, video){
-          video.videoDuration > 0 ? allReady = true : allReady = false
-
-          if ( allVideos.length == i + 1 ){
-            if ( allReady ){
-              startPlaying();
-              clearInterval(interval);
-            }
-          }
-        });
-      }, 100);
-    }
-
-    function startPlaying(){
-      var interval;
-      var secondsPlaying = 0;
-      var iteration = 1;
-
-      interval = setInterval(function () {
-        var firstVideoAfter = 1;
-        var secondVideoAfter = videos[0].videoDuration
-        var thirdVideoAfter = videos[0].videoDuration + videos[1].videoDuration
-        var totalVideoTime = videos[0].videoDuration + videos[1].videoDuration + videos[2].videoDuration
-        // console.log(firstVideoAfter,secondVideoAfter )
-
-        var countdown = Math.abs(secondsPlaying - ( totalVideoTime * iteration ));
-        $.each(videos, function(i, video){
-          if ( video.index == 1){
-            if (countdown >= firstVideoAfter * iteration ){
-              playVideo(1)
-            } else {
-              stopVideo(1);
-            }
-          }
-
-          if ( video.index == 2){
-            if (countdown >= secondVideoAfter * iteration){
-              playVideo(2)
-            } else {
-              stopVideo(2);
-            }
-          }
-
-          if ( video.index == 3){
-            if (countdown >= thirdVideoAfter * iteration){
-              playVideo(3)
-            } else {
-              stopVideo(3);
-            }
-          }
-        })
-
-        if ( secondsPlaying > totalVideoTime * iteration ){
-          iteration++
-        }
-        secondsPlaying++
-      }, 1000);
-
-    }
+    //
+    // function checkAvailable(){
+    //   var interval = setInterval(function () {
+    //     var allReady = false;
+    //     $.each(videos, function(i, video){
+    //       video.videoDuration > 0 ? allReady = true : allReady = false
+    //
+    //       if ( allVideos.length == i + 1 ){
+    //         if ( allReady ){
+    //           startPlaying();
+    //           clearInterval(interval);
+    //         }
+    //       }
+    //     });
+    //   }, 100);
+    // }
+    //
+    // function startPlaying(){
+    //   var interval;
+    //   var secondsPlaying = 0;
+    //   var iteration = 1;
+    //
+    //   interval = setInterval(function () {
+    //     var firstVideoAfter = 1;
+    //     var secondVideoAfter = videos[0].videoDuration
+    //     var thirdVideoAfter = videos[0].videoDuration + videos[1].videoDuration
+    //     var totalVideoTime = videos[0].videoDuration + videos[1].videoDuration + videos[2].videoDuration
+    //     // console.log(firstVideoAfter,secondVideoAfter )
+    //
+    //     var countdown = Math.abs(secondsPlaying - ( totalVideoTime * iteration ));
+    //     $.each(videos, function(i, video){
+    //       if ( video.index == 1){
+    //         if (countdown >= firstVideoAfter * iteration ){
+    //           playVideo(1)
+    //         } else {
+    //           stopVideo(1);
+    //         }
+    //       }
+    //
+    //       if ( video.index == 2){
+    //         if (countdown >= secondVideoAfter * iteration){
+    //           playVideo(2)
+    //         } else {
+    //           stopVideo(2);
+    //         }
+    //       }
+    //
+    //       if ( video.index == 3){
+    //         if (countdown >= thirdVideoAfter * iteration){
+    //           playVideo(3)
+    //         } else {
+    //           stopVideo(3);
+    //         }
+    //       }
+    //     })
+    //
+    //     if ( secondsPlaying > totalVideoTime * iteration ){
+    //       iteration++
+    //     }
+    //     secondsPlaying++
+    //   }, 1000);
+    //
+    // }
 
     function playVideo(index){
       // cleanup
@@ -171,18 +206,18 @@ $(document).ready(function(){
       //   }
       // });
     }
-    function stopVideo(index){
-      $.each(videos, function(i, video){
-        if ( video.index == index ){
-          var targetVideo = video.video;
-          targetVideo.removeClass('is-active');
-          targetVideo.get(0).pause();
-
-          // update selector class
-          $('.step-nav__el[data-video="'+video.index+'"]').removeClass('is-active');
-        }
-      });
-    }
+    // function stopVideo(index){
+    //   $.each(videos, function(i, video){
+    //     if ( video.index == index ){
+    //       var targetVideo = video.video;
+    //       targetVideo.removeClass('is-active');
+    //       targetVideo.get(0).pause();
+    //
+    //       // update selector class
+    //       $('.step-nav__el[data-video="'+video.index+'"]').removeClass('is-active');
+    //     }
+    //   });
+    // }
 
   }
 
@@ -234,30 +269,39 @@ $(document).ready(function(){
   ////////////
   function initScrollMonitor(){
     $('.wow').each(function(i, el){
-
-      var elWatcher = scrollMonitor.create( $(el) );
+      var $el = $(el);
+      var elWatcher = scrollMonitor.create( $el );
+      var fullyEntered = $el.data('fully-entered');
 
       var delay;
       if ( $(window).width() < 768 ){
         delay = 0
       } else {
-        delay = $(el).data('animation-delay');
+        delay = $el.data('animation-delay');
       }
 
-      var animationClass = $(el).data('animation-class') || "wowFadeUp"
+      var animationClass = $el.data('animation-class') || "wowFadeUp"
 
-      var animationName = $(el).data('animation-name') || "wowFade"
+      var animationName = $el.data('animation-name') || "wowFade"
 
-      elWatcher.enterViewport(throttle(function() {
-        $(el).addClass(animationClass);
-        $(el).css({
+      if ( fullyEntered ){
+        elWatcher.fullyEnterViewport(throttle(show, 100, {
+          'leading': true
+        }));
+      } else {
+        elWatcher.enterViewport(throttle(show, 100, {
+          'leading': true
+        }));
+      }
+
+      function show(){
+        $el.addClass(animationClass);
+        $el.css({
           'animation-name': animationName,
           'animation-delay': delay,
           'visibility': 'visible'
         });
-      }, 100, {
-        'leading': true
-      }));
+      }
       // elWatcher.exitViewport(throttle(function() {
       //   $(el).removeClass(animationClass);
       //   $(el).css({

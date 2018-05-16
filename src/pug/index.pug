@@ -10,19 +10,19 @@ block content
       .hero__wrapper
         .hero__left
           .hero__image
-            .hero__phone
-              img.wow(data-animation-delay=".2s" src='img/hero-phone.png' srcset='img/hero-phone@2x.png 2x')
-              .hero__card.wow(data-animation-delay="1s")
+            .hero__phone.wow(data-animation-delay="1.5s" data-animation-class="wowFadeDown")
+              img(src='img/hero-phone.png' srcset='img/hero-phone@2x.png 2x')
+              .hero__card.wow(data-animation-delay="2.5s" data-animation-class="wowCardGrow" data-animation-name="wowGrow")
                 img(src='img/hero-card.png' srcset='img/hero-card@2x.png 2x')
                   
         .hero__right
           .hero__content
-            .hero__logo.wow
+            .hero__logo.wow(data-animation-class="wowFadeDown")
               +icon('ico-logo')
-            h1.hero__heading.wow(data-animation-delay=".2s") Виртуальная карта <br>за 60 секунд для оплаты <br>бизнес-расходов
-            .hero__description.wow(data-animation-delay=".4s") Полноценная карта, только без пластика <br> в приложении «Альфа-Бизнес Мобайл»
-            .hero__cta.wow(data-animation-delay=".6s")
-              a(href="#").button.button_size_l
+            h1.hero__heading.wow(data-animation-delay=".2s" data-animation-class="wowFadeDown") Виртуальная карта <br>за 60 секунд для оплаты <br>бизнес-расходов
+            .hero__description.wow(data-animation-delay=".35s" data-animation-class="wowFadeDown") Полноценная карта, только без пластика <br> в приложении «Альфа-Бизнес Мобайл»
+            .hero__cta.wow(data-animation-delay=".5s" data-animation-class="wowFadeDown")
+              a(href="#" js-scrollTo data-scroll-to="issue-card").button.button_size_l
                 span Выпустить карту
   
   // info
@@ -59,7 +59,7 @@ block content
           
           // card
           .info__card
-            .info__card-fly
+            .info__card-fly.wow(data-animation-delay=".25s" data-fully-entered="true")
               img(src='img/card-fly.png' srcset='img/card-fly@2x.png 2x')
     
     // next container
@@ -91,7 +91,7 @@ block content
             i.icon.icon-samsung-pay
 
   // STEPS
-  .steps
+  .steps(data-target="issue-card")
     .container.container--narrow
       .steps__wrapper
         .steps__left
@@ -105,9 +105,9 @@ block content
               .step-nav__content
                 span.step-nav__name Установите приложение <br>«Альфа-Бизнес Мобайл».
                 .step-nav__download
-                  a(href="#" target="_blank")
+                  a(href="https://itunes.apple.com/ru/app/id555970430?mt=8" target="_blank")
                     i.icon.icon-appstore-logo
-                  a(href="#" target="_blank")
+                  a(href="https://play.google.com/store/apps/details?id=ru.alfabank.oavdo.amc" target="_blank")
                     i.icon.icon-google-play-logo
                       
             //el
@@ -212,9 +212,9 @@ block content
               .benefits__list-name Решайте банковские вопросы в чате
               .benefits__list-desc Чат со специалистами Банка прямо в приложении, доступен <br>7 дней в неделю, 24 часа в сутки. Решение любого вопроса <br>в течение нескольких минут.
               .benefits__download
-                a(href="#" target="_blank")
+                a(href="https://itunes.apple.com/ru/app/id555970430?mt=8" target="_blank")
                   i.icon.icon-appstore-logo
-                a(href="#" target="_blank")
+                a(href="https://play.google.com/store/apps/details?id=ru.alfabank.oavdo.amc" target="_blank")
                   i.icon.icon-google-play-logo
                     
   // SCOPE
@@ -247,7 +247,7 @@ block content
               .scope__list-desc Работает на любом компьютере.
       
       .scope__cta
-        a(href="#").button.button_size_l
+        a(href="https://alfabank.ru/sme/" target="_blank").button.button_size_l
           span Открыть счёт в Альфа-Банке
   
   // FOOTER
@@ -259,9 +259,9 @@ block content
           span Получение информации и проведение операций 24/7
         .footer__right
           .footer__socials
-            a(href="#" target="_blank")
+            a(href="https://www.facebook.com/alfabank.sme" target="_blank")
               i.icon.icon-social-facebook
-            a(href="#" target="_blank")
+            a(href="https://vk.com/alfabank_sme" target="_blank")
               i.icon.icon-social-vk
                         
           span ©2018 Альфа-Банк. Генеральная лицензия ЦБ РФ №1326
