@@ -1,38 +1,65 @@
 $sprite: (
+	apple-pay: (
+		offset-x: -108px,
+		offset-y: -100px,
+		width: 94px,
+		height: 39px,
+		total-width: 219px,
+		total-height: 189px,
+		image: '../img/sprite.png'
+	),
 	appstore-logo: (
 		offset-x: 0px,
-		offset-y: -50px,
-		width: 142px,
+		offset-y: 0px,
+		width: 143px,
 		height: 40px,
-		total-width: 144px,
-		total-height: 140px,
+		total-width: 219px,
+		total-height: 189px,
+		image: '../img/sprite.png'
+	),
+	google-pay: (
+		offset-x: 0px,
+		offset-y: -100px,
+		width: 98px,
+		height: 39px,
+		total-width: 219px,
+		total-height: 189px,
 		image: '../img/sprite.png'
 	),
 	google-play-logo: (
 		offset-x: 0px,
-		offset-y: 0px,
-		width: 144px,
+		offset-y: -50px,
+		width: 143px,
 		height: 40px,
-		total-width: 144px,
-		total-height: 140px,
+		total-width: 219px,
+		total-height: 189px,
+		image: '../img/sprite.png'
+	),
+	samsung-pay: (
+		offset-x: -153px,
+		offset-y: 0px,
+		width: 66px,
+		height: 66px,
+		total-width: 219px,
+		total-height: 189px,
 		image: '../img/sprite.png'
 	),
 	social-facebook: (
 		offset-x: 0px,
-		offset-y: -100px,
+		offset-y: -149px,
 		width: 40px,
 		height: 40px,
-		total-width: 144px,
-		total-height: 140px,
+		total-width: 219px,
+		total-height: 189px,
 		image: '../img/sprite.png'
 	),
 	social-vk: (
 		offset-x: -50px,
-		offset-y: -100px,
+		offset-y: -149px,
 		width: 40px,
 		height: 40px,
-		total-width: 144px,
-		total-height: 140px,
+		total-width: 219px,
+		total-height: 189px,
 		image: '../img/sprite.png'
 	),
 );
@@ -91,11 +118,20 @@ $sprite: (
 
 
 
+	.icon-apple-pay {
+		@include sprite(apple-pay)
+	}
 	.icon-appstore-logo {
 		@include sprite(appstore-logo)
 	}
+	.icon-google-pay {
+		@include sprite(google-pay)
+	}
 	.icon-google-play-logo {
 		@include sprite(google-play-logo)
+	}
+	.icon-samsung-pay {
+		@include sprite(samsung-pay)
 	}
 	.icon-social-facebook {
 		@include sprite(social-facebook)

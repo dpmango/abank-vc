@@ -65,14 +65,31 @@ block content
     // next container
     .container.container--narrow
       h2.heading.heading_size_l Пользуйтесь виртуальной картой для бизнеса как привычным пластиком
-      .info__benefits-heading Привяжите карту к платежной системе смартфона и сразу же совершайте <br>покупки и работайте с наличными средствами.
+      .info-for-heading Привяжите карту к платежной системе смартфона и сразу же совершайте <br>покупки и работайте с наличными средствами.
 
-      .info__benefits
-        +icon('ico-cart')
-        +icon('ico-atm')
-        +icon('ico-contactless')
-        
-  
+      .info-for
+        .info-for__left
+          .info-for__text-el
+            .info-for__text-icon
+              +icon('ico-contactless')
+            .info-for__text-content Бесконтактная <br>оплата <br>в магазинах
+          .info-for__text-el
+            .info-for__text-icon
+              +icon('ico-cart')
+            .info-for__text-content Оплата услуг<br>и покупки <br>в Интернете
+          .info-for__text-el
+            .info-for__text-icon
+              +icon('ico-atm')
+            .info-for__text-content Внесение/снятие<br>наличных<br>в банкоматах
+
+        .info-for__right
+          .info-for__icon-el
+            i.icon.icon-apple-pay
+          .info-for__icon-el
+            i.icon.icon-google-pay
+          .info-for__icon-el
+            i.icon.icon-samsung-pay
+
   // STEPS
   .steps
     .container.container--narrow
