@@ -137,11 +137,14 @@ block content
             img.steps__video-phone(src='img/iphone-x.png' srcset='img/iphone-x@2x.png 2x')
             .steps__video-frame(js-video-logic)
               video(data-video-id="1" muted)
-                source(data-src='video/video-1_start.mp4')
+                source(data-src='video/video-1_start.mp4' type="video/mp4")
+                source(data-src='video/video-1_start.webm' type="video/webm")
               video(data-video-id="2" muted)
-                source(data-src='video/video-2_release.mp4')
+                source(data-src='video/video-2_release.mp4' type="video/mp4")
+                source(data-src='video/video-2_release.webm' type="video/webm")
               video(data-video-id="3" muted)
-                source(data-src='video/video-3_put.mp4')
+                source(data-src='video/video-3_put.mp4' type="video/mp4")
+                source(data-src='video/video-3_put.webm' type="video/webm")
   
   // CONDITIONS
   .condition

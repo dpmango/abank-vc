@@ -108,8 +108,10 @@ $(document).ready(function(){
         var videoDuration = 0;
 
         // load sources
-        var sources = video.querySelector('source');
-        sources.setAttribute('src', sources.getAttribute('data-src'));
+        var sources = $video.find('source');
+        $.each(sources, function(i, source){
+          source.setAttribute('src', source.getAttribute('data-src'));
+        })
 
         video.load();
         $video.on('loadedmetadata', function(){
