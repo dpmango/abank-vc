@@ -254,8 +254,8 @@ $(document).ready(function(){
       }
 
       var animationClass = $el.data('animation-class') || "wowFadeUp"
-
       var animationName = $el.data('animation-name') || "wowFade"
+      var animationDuration = $el.data('animation-duration') || "0.75s"
 
       if ( fullyEntered ){
         elWatcher.fullyEnterViewport(throttle(show, 100, {
@@ -272,6 +272,7 @@ $(document).ready(function(){
         $el.css({
           'animation-name': animationName,
           'animation-delay': delay,
+          'animation-duration': animationDuration,
           'visibility': 'visible'
         });
       }
