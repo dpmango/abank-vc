@@ -1,0 +1,35 @@
+
+.condition
+  .heading
+    margin: 0
+
+  &__row
+    display: flex
+    margin: 40px -30px
+    border-top: 1px solid $borderColor
+    border-bottom: 1px solid $borderColor
+    padding: 10px 0
+
+  &__el
+    flex: 1 1 auto
+    max-width: 100%
+    min-width: 1px
+    min-height: 0
+    padding: 15px 30px
+    border-right: 1px solid $borderColor
+    &:last-child
+      border-right: 0
+    &-name
+      font-size: 30px
+      font-weight: 700
+    &-description
+      font-size: 16px
+      margin-top: 15px
+
+  &__more
+    font-size: 30px
+    font-weight: 700
+    cursor: pointer
+    display: inline-block
+    span
+      border-bottom: 1px dashed rgba(11, 31, 53, .6)
