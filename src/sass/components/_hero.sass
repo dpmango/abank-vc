@@ -1,6 +1,6 @@
 .hero
   position: relative
-  background: #0E3464
+  background: #0a1f35
   overflow: hidden
   &::after
     display: inline-block
@@ -21,7 +21,6 @@
     padding: 55px 0
 
   &__left, &__right
-    position: relative
     flex: 0 1 50%
     display: flex
     flex-direction: column
@@ -57,8 +56,10 @@
     flex-direction: column
 
   &__logo
-    font-size: 62px
+    font-size: 0px
     margin-bottom: auto
+    .ico
+      font-size: 62px
 
   &__heading
     margin-top: 25px
@@ -75,3 +76,37 @@
   &__cta
     margin-top: 40px
     margin-bottom: auto
+
++r($tablet)
+  .hero
+    &::after
+      background-position: 50% center
+    &__wrapper
+      flex-direction: column
+      margin: 0
+      padding-top: 80px
+      padding-bottom: 40px
+    &__left, &__right
+      flex: 1 0 auto
+      padding: 0
+      max-width: 100%
+    &__image
+      margin-top: 0
+    &__phone
+      margin-top: 7%
+    &__heading
+      font-size: 21px
+      margin-top: 15px
+      margin-bottom: 10px
+    &__description
+      font-size: 13px
+      margin-top: 5px
+    &__logo
+      position: absolute
+      top: 20px
+      left: 0
+      .ico
+        font-size: 40px
+    &__cta
+      margin-top: 25px
+      margin-bottom: 0

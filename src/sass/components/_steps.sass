@@ -117,3 +117,35 @@
       transition: opacity .25s $ease
       &:hover
         opacity: .75
+
+
++r($tablet)
+  .steps
+    &__wrapper
+      display: block
+    &__video
+      display: none
+
+  .step-nav
+    margin-top: 20px
+    &__el
+      margin-bottom: 17px
+      &::after
+        display: none
+    &__icon
+      flex-basis: 40px
+      max-width: 40px
+      span
+        font-size: 17px
+    &__name
+      font-size: 13px
+    &__download
+      margin-top: 10px
+      margin-bottom: -5px
+      a
+        margin-right: 0
+        &:last-child
+          margin-left: -20px
+        .icon
+          transform-origin: left center
+          transform: scale(.75)

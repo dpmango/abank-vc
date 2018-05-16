@@ -3,12 +3,9 @@
   -webkit-overflow-scrolling: touch
   -webkit-transform: translateZ(0)
 
-html.mfp-helper
-  height: 100%
-  body
-    overflow: hidden
-    height: 100%
-    -webkit-transform: translateZ(0)
+.mfp-container
+  padding-left: 0
+  padding-right: 0
 
 .modal
   background: white
@@ -60,6 +57,28 @@ html.mfp-helper
   &__note
     max-width: 480px
     font-size: 13px
+
+
++r($tablet)
+  .modal
+    padding: 20px 20px
+    border-radius: 0
+    &__heading
+      font-size: 13px
+      br
+        display: none
+
+    &__table
+      margin: 10px -10px 15px
+      thead
+        font-size: 10px
+      tbody
+        font-size: 13px
+      td
+        padding: 8px 10px
+
+    &__note
+      font-size: 10px
 
 // Fade-zoom animation for first dialog
 

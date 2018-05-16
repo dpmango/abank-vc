@@ -13,6 +13,17 @@
     margin-bottom: 20px
     font-size: 22px
 
++r($tablet)
+  .heading
+    &_size_l
+      margin-top: 15px
+      margin-bottom: 10px
+      font-size: 17px
+    &_size_m
+      margin-top: 10px
+      margin-bottom: 10px
+      font-size: 15px
+
 .icon
   &-circle
     size: 42px
@@ -22,11 +33,16 @@
     align-items: center
     justify-content: center
     text-align: center
+    +r($tablet)
+      size: 30px
 
 
 .plato
   margin-top: 45px
   margin-bottom: 70px
+  margin-left: -15px
+  margin-right: -15px
+  padding: 0 15px
   position: relative
   &__wrap
     position: relative
@@ -36,8 +52,6 @@
     padding: 50px
     display: flex
     align-items: center
-    margin-left: -15px
-    margin-right: -15px
     &--gray
       display: block
       margin: 0
@@ -53,3 +67,21 @@
     bottom: -70px
     background: url('../img/infoHolder-bg.png') no-repeat center top
     background-size: 100% 100%
+
+.br-mobile
+  display: none
+
++r($tablet)
+  .plato
+    margin-top: 15px
+    margin-bottom: 40px
+    padding: 0
+    &__wrap
+      flex-direction: column-reverse
+      align-items: flex-start
+      padding: 35px 15px
+
+  br
+    display: none
+  .br-mobile
+    display: block

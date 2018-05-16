@@ -19,8 +19,8 @@ block content
           .hero__content
             .hero__logo.wow(data-animation-class="wowFadeDown")
               +icon('ico-logo')
-            h1.hero__heading.wow(data-animation-delay=".2s" data-animation-class="wowFadeDown") Виртуальная карта <br>за 60 секунд для оплаты <br>бизнес-расходов
-            .hero__description.wow(data-animation-delay=".35s" data-animation-class="wowFadeDown") Полноценная карта, только без пластика <br> в приложении «Альфа-Бизнес Мобайл»
+            h1.hero__heading.wow(data-animation-delay=".2s" data-animation-class="wowFadeDown") Виртуальная карта <span class="br-mobile"><br>за 60 секунд для оплаты <span class="br-mobile"><br>бизнес-расходов
+            .hero__description.wow(data-animation-delay=".35s" data-animation-class="wowFadeDown") Полноценная карта, только без пластика <span class="br-mobile"><br> в приложении «Альфа-Бизнес Мобайл»
             .hero__cta.wow(data-animation-delay=".5s" data-animation-class="wowFadeDown")
               a(href="#" js-scrollTo data-scroll-to="issue-card").button.button_size_l
                 span Выпустить карту
@@ -28,7 +28,7 @@ block content
   // info
   .info
     .container.container--narrow
-      h2.heading.heading_size_l Виртуальная карта для оплаты бизнес-расходов
+      h2.heading.heading_size_l Виртуальная карта для <span class="br-mobile">оплаты бизнес-расходов
     .container
       .plato
         .plato__wrap
@@ -54,7 +54,7 @@ block content
               .info__list-icon
                 +icon('ico-drop')
               .info__list-content
-                .heading.heading_size_m Бесплатный выпуск и обслуживание
+                .heading.heading_size_m Бесплатный выпуск <span class="br-mobile">и обслуживание
                 p Открытие и обслуживание неограниченного количества карт — 0₽.
           
           // card
@@ -64,7 +64,7 @@ block content
     
     // next container
     .container.container--narrow
-      h2.heading.heading_size_l Пользуйтесь виртуальной картой для бизнеса как привычным пластиком
+      h2.heading.heading_size_l Пользуйтесь виртуальной <span class="br-mobile">картой для бизнеса <span class="br-mobile">как привычным пластиком
       .info-for-heading Привяжите карту к платежной системе смартфона и сразу же совершайте <br>покупки и работайте с наличными средствами.
 
       .info-for
@@ -72,15 +72,15 @@ block content
           .info-for__text-el
             .info-for__text-icon
               +icon('ico-contactless')
-            .info-for__text-content Бесконтактная <br>оплата <br>в магазинах
+            .info-for__text-content Бесконтактная <br><span class="br-mobile">оплата <br><span class="br-mobile">в магазинах
           .info-for__text-el
             .info-for__text-icon
               +icon('ico-cart')
-            .info-for__text-content Оплата услуг<br>и покупки <br>в Интернете
+            .info-for__text-content Оплата услуг<br<span class="br-mobile">и покупки <br><span class="br-mobile">в Интернете
           .info-for__text-el
             .info-for__text-icon
               +icon('ico-atm')
-            .info-for__text-content Внесение/снятие<br>наличных<br>в банкоматах
+            .info-for__text-content Внесение/снятие<br><span class="br-mobile">наличных<br><span class="br-mobile">в банкоматах
 
         .info-for__right
           .info-for__icon-el
@@ -95,7 +95,7 @@ block content
     .container.container--narrow
       .steps__wrapper
         .steps__left
-          h2.heading.heading_size_l Откройте виртуальную карту <br>в четыре шага в мобильном банке
+          h2.heading.heading_size_l Откройте виртуальную карту <span class="br-mobile"><br>в четыре шага в мобильном банке
           // step nav
           .step-nav
             .step-nav__el
@@ -191,31 +191,35 @@ block content
   // BENEFITS
   .benefits
     .container
-      h2.heading.heading_size_l Мобильный банк «Альфа-Бизнес Мобайл» — управляйте <br>бизнесом в любое время дня и ночи
-      .benefits__wrapper
-        .benefits__left
-          .benefits__image
-            img(src='img/benefits-phones.png' srcset='img/benefits-phones@2x.png 2x')
+      .container-offset
+        span(js-teleport data-teleport-to="benefits-mobile-heading" data-teleport-condition="<768")
+          h2.heading.heading_size_l Мобильный банк <span class="br-mobile">«Альфа-Бизнес Мобайл» — <span class="br-mobile">управляйте <br>бизнесом <span class="br-mobile">в любое время дня и ночи
         
-        .benefits__right
-          .benefits__list
-            .benefits__list-el
-              .benefits__list-name Управляйте бизнесом в любое время
-              .benefits__list-desc Актуальные остатки по счёту, история операций, контроль <br>оборотных средств, финансовая аналитика в удобном <br>формате — всегда под рукой.
-            .benefits__list-el
-              .benefits__list-name Расплачивайтесь с партнерами в 3 клика
-              .benefits__list-desc Платежи юридическим и физическим лицам, платежи <br>государству, повтор платежей и платежи по шаблонам. <br>А также оплата счетов по файлу или фото.
-            .benefits__list-el
-              .benefits__list-name Ускоряйте бизнес
-              .benefits__list-desc Выставляйте счета партнерам без сложных бухгалтерских <br>программ. Отправляйте выписку бухгалтеру прямо <br>из приложения. Отправляйте исполненные платежки <br>по почте.
-            .benefits__list-el
-              .benefits__list-name Решайте банковские вопросы в чате
-              .benefits__list-desc Чат со специалистами Банка прямо в приложении, доступен <br>7 дней в неделю, 24 часа в сутки. Решение любого вопроса <br>в течение нескольких минут.
-              .benefits__download
-                a(href="https://itunes.apple.com/ru/app/id555970430?mt=8" target="_blank")
-                  i.icon.icon-appstore-logo
-                a(href="https://play.google.com/store/apps/details?id=ru.alfabank.oavdo.amc" target="_blank")
-                  i.icon.icon-google-play-logo
+        .benefits__wrapper
+          .benefits__left
+            .benefits__image
+              img(src='img/benefits-phones.png' srcset='img/benefits-phones@2x.png 2x')
+          
+          .benefits__right
+            span(data-teleport-target="benefits-mobile-heading")
+            .benefits__list
+              .benefits__list-el
+                .benefits__list-name Управляйте бизнесом <span class="br-mobile">в любое время
+                .benefits__list-desc Актуальные остатки по счёту, история операций, контроль <br>оборотных средств, финансовая аналитика в удобном <br>формате — всегда под рукой.
+              .benefits__list-el
+                .benefits__list-name Расплачивайтесь <span class="br-mobile">с партнерами в 3 клика
+                .benefits__list-desc Платежи юридическим и физическим лицам, платежи <br>государству, повтор платежей и платежи по шаблонам. <br>А также оплата счетов по файлу или фото.
+              .benefits__list-el
+                .benefits__list-name Ускоряйте бизнес
+                .benefits__list-desc Выставляйте счета партнерам без сложных бухгалтерских <br>программ. Отправляйте выписку бухгалтеру прямо <br>из приложения. Отправляйте исполненные платежки <br>по почте.
+              .benefits__list-el
+                .benefits__list-name Решайте банковские <span class="br-mobile">вопросы в чате
+                .benefits__list-desc Чат со специалистами Банка прямо в приложении, доступен <br>7 дней в неделю, 24 часа в сутки. Решение любого вопроса <br>в течение нескольких минут.
+                .benefits__download
+                  a(href="https://itunes.apple.com/ru/app/id555970430?mt=8" target="_blank")
+                    i.icon.icon-appstore-logo
+                  a(href="https://play.google.com/store/apps/details?id=ru.alfabank.oavdo.amc" target="_blank")
+                    i.icon.icon-google-play-logo
                     
   // SCOPE
   .scope
