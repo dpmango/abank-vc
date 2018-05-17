@@ -78,6 +78,12 @@
 .br-mobile
   display: none
 
+.text-desktop
+  font-style: normal
+.text-mobile
+  font-style: normal
+  display: none
+
 +r($desktop)
   .plato
     &__wrap
@@ -100,3 +106,8 @@
 
   .benefits__list-name, .scope__list-name
     line-height: 1.33
+
+  .text-desktop
+    display: none
+  .text-mobile
+    display: inline-block

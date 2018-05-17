@@ -100,6 +100,13 @@ $(document).ready(function(){
         }, 2000)
       });
 
+      _document.on('click', '[js-toggle-video]', function(){
+        var videoId = $(this).data('video');
+        if ( _window.width() > 768 ){
+          playVideo(videoId);
+        }
+      });
+
       // refactor
       var allVideos = $('[js-video-logic] video');
       var videos = [];
@@ -135,6 +142,10 @@ $(document).ready(function(){
       // cleanup
       $('.step-nav__el').removeClass('is-active');
       $('video').removeClass('is-active');
+      $('video').each(function(i, video){
+        video.currentTime = 0;
+        video.pause();
+      })
 
       // add active classes and play
       var targetVideo = $('video[data-video-id="'+index+'"]');

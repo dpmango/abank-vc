@@ -17,16 +17,20 @@ block content
                   
         .hero__right
           .hero__content
-            .hero__logo.wow(data-animation-class="wowFadeDown")
+            a(href="https://alfabank.ru/sme/?platformId=landing_virtual_card&utm_source=landing_page&utm_medium=organic&utm_campaign=virtual_card_landing_out" target="_blank").hero__logo.wow(data-animation-class="wowFadeDown")
               +icon('ico-logo')
             h1.hero__heading.wow(data-animation-delay=".2s" data-animation-class="wowFadeDown") Виртуальная карта VISA<span class="br-mobile"></span><br>за 60 секунд для оплаты <span class="br-mobile"></span><br>бизнес-расходов
             .hero__description.wow(data-animation-delay=".35s" data-animation-class="wowFadeDown") Полноценная карта, только без пластика <span class="br-mobile"></span><br> в приложении «Альфа-Бизнес Мобайл»
             .hero__cta.wow(data-animation-delay=".5s" data-animation-class="wowFadeDown")
               a(href="#" js-scrollTo data-scroll-to="issue-card").button.button_size_l
                 span Выпустить карту
+        
+        .hero__scroll(js-scrollTo data-scroll-to="second-block")
+          .hero__scroll-wrap
+            +icon('ico-scroll-arrow')
   
   // info
-  .info
+  .info(data-target="second-block")
     .container.container--narrow
       h2.heading.heading_size_l Виртуальная карта для оплаты <span class="br-mobile"></span>бизнес-расходов
     .container
@@ -105,9 +109,9 @@ block content
               .step-nav__content
                 span.step-nav__name Установите приложение <span class="br-mobile"></span><br>«Альфа-Бизнес Мобайл».
                 .step-nav__download
-                  a(href="https://itunes.apple.com/ru/app/id555970430?mt=8" target="_blank")
+                  a(href="https://app.appsflyer.com/id555970430?pid=site&c=virtual_card_nonclient" target="_blank")
                     i.icon.icon-appstore-logo
-                  a(href="https://play.google.com/store/apps/details?id=ru.alfabank.oavdo.amc" target="_blank")
+                  a(href="https://app.appsflyer.com/ru.alfabank.oavdo.amc?pid=site&c=virtual_card_nonclient" target="_blank")
                     i.icon.icon-google-play-logo
                       
             //el
@@ -219,9 +223,9 @@ block content
                 .benefits__list-name Решайте банковские <span class="br-mobile"></span>вопросы в чате
                 .benefits__list-desc Чат со специалистами Банка прямо <span class="br-mobile"></span>в приложении, доступен <br>7 дней в неделю,<span class="br-mobile"></span> 24 часа в сутки. Решение любого вопроса <span class="br-mobile"></span><br>в течение нескольких минут.
                 .benefits__download
-                  a(href="https://itunes.apple.com/ru/app/id555970430?mt=8" target="_blank")
+                  a(href="https://app.appsflyer.com/id555970430?pid=site&c=virtual_card_nonclient" target="_blank")
                     i.icon.icon-appstore-logo
-                  a(href="https://play.google.com/store/apps/details?id=ru.alfabank.oavdo.amc" target="_blank")
+                  a(href="https://app.appsflyer.com/ru.alfabank.oavdo.amc?pid=site&c=virtual_card_nonclient" target="_blank")
                     i.icon.icon-google-play-logo
                     
   // SCOPE
@@ -254,7 +258,7 @@ block content
               .scope__list-desc Работает на любом компьютере.
       
       .scope__cta
-        a(href="https://alfabank.ru/sme/" target="_blank").button.button_size_l
+        a(href="https://alfabank.ru/sme/agent/virtual_card_rko/?platformId=landing_virtual_card&utm_source=landing_page&utm_medium=organic&utm_campaign=virtual_card_landing_out" target="_blank").button.button_size_l
           span Открыть счёт в Альфа-Банке
   
   // FOOTER
@@ -271,4 +275,4 @@ block content
             a(href="https://vk.com/alfabank_sme" target="_blank")
               i.icon.icon-social-vk
                         
-          span ©2018 Альфа-Банк. Генеральная лицензия ЦБ РФ №1326
+          span ©2018 Альфа-Банк. Ген<i class="text-mobile">.</i><i class="text-desktop">еральная</i> лицензия ЦБ РФ №1326

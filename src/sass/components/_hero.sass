@@ -56,6 +56,7 @@
     flex-direction: column
 
   &__logo
+    display: inline-block
     font-size: 0px
     margin-bottom: auto
     .ico
@@ -76,6 +77,34 @@
   &__cta
     margin-top: 40px
     margin-bottom: auto
+
+  &__scroll
+    position: absolute
+    bottom: 30px
+    left: 50%
+    text-align: center
+    cursor: pointer
+    &:hover
+      // animation-play-state: paused
+      .hero__scroll-wrap
+        animation-play-state: paused
+        // transform: translateY(5px)
+    &-wrap
+      font-size: 0
+      animation: scrollAnimation 1s ease
+      animation-iteration-count: infinite
+      animation-fill-mode: both
+      // transition: transform .25s $ease
+      .ico
+        font-size: 15px
+
+@keyframes scrollAnimation
+  0%
+    transform: translateY(0)
+  50%
+    transform: translateY(8px)
+  100%
+    transform: translateY(0)
 
 +r($desktop)
   .hero
@@ -123,3 +152,5 @@
     &__cta
       margin-top: 25px
       margin-bottom: 0
+    &__scroll
+      bottom: 15px

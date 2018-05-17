@@ -123,6 +123,7 @@
     padding: 15px 0 40px 0
     &__list
       flex: 0 0 auto
+      width: 100%
       max-width: 100%
       &-el
         margin-bottom: 20px
@@ -176,7 +177,11 @@
         flex: 0 1 33.3%
         max-width: 33.3%
         padding-right: 5px
-
+      &-icon
+        .ico
+          font-size: 28px
+          &-cart
+            transform: translateY(-2px)
     &__text-content
       margin-top: 10px
       font-size: 10px
@@ -185,8 +190,10 @@
       padding-top: 0
       flex: 0 1 33.3%
       max-width: 33.3%
+      // display: block
       overflow: visible
       padding-right: 0
       .icon
+        flex: 0 0 auto
         transform-origin: left center
         transform: scale(.55)
