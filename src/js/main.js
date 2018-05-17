@@ -71,6 +71,28 @@ $(document).ready(function(){
     })
   }
 
+  // css3 filter support
+  function css3FilterFeatureDetect(enableWebkit) {
+    if(enableWebkit === undefined) {
+        enableWebkit = false;
+    }
+    el = document.createElement('div');
+    el.style.cssText = (enableWebkit?'-webkit-':'') + 'filter: blur(2px)';
+    test1 = (el.style.length != 0);
+    test2 = (
+        document.documentMode === undefined //non-IE browsers, including ancient IEs
+        || document.documentMode > 9 //IE compatibility moe
+    );
+    return test1 && test2;
+  }
+
+  css3FilterFeatureDetect(true);
+  if(document.body.style.webkitFilter !== undefined){
+    $('body').addClass('css3-filter-enabled');
+  } else {
+    $('body').addClass('css3-filter-disabled');
+  }
+
   // Prevent # behavior
 	_document
     .on('click', '[href="#"]', function(e) {

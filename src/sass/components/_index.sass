@@ -59,6 +59,7 @@
     padding: 50px
     display: flex
     align-items: center
+    // opacity: .1
     &--gray
       display: block
       margin: 0
@@ -74,6 +75,23 @@
     bottom: -70px
     background: url('../img/infoHolder-bg.png') no-repeat center top
     background-size: 100% 100%
+
+
+.css3-filter-enabled .plato
+  &::after
+    top: 30px
+    left: 10px
+    right: 10px
+    bottom: -15px
+    background: $borderColor
+    filter: blur(20px)
+    border-radius: 15px
+
+.css3-filter-disabled .plato
+  &::after
+    +r($tablet)
+      background: none
+      box-shadow: 0px 10px 20px -5px rgba($borderColor, .9)
 
 .br-mobile
   display: none

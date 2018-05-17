@@ -66,6 +66,7 @@
     position: relative
     display: flex
     margin-bottom: 22px
+    cursor: pointer
     &:last-child
       margin-bottom: 0
     &::after
@@ -83,9 +84,13 @@
       transform: translate(-15px,0)
       transition: opacity .25s $ease, transform .25s $ease
     &.is-active
+      pointer-events: none
       &::after
         opacity: 1
         transform: translate(0,0)
+    &:hover:not(.is-active)
+      &::after
+        opacity: .25
 
   &__icon
     flex: 0 0 60px
