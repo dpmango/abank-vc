@@ -53,79 +53,58 @@ $(document).ready(function(){
 
     var hrefRefer = window.location.pathname.slice(1);
 
-    var logoLinkVal, appstoreLinkVal, googleLinkVal, openLinkVal
+    var appLinkVal, siteLinkVal;
+
     switch (hrefRefer) {
       case "meduza":
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_meduza&utm_source=landing_page&utm_medium=media&utm_campaign=virtual_card_landing_meduza"
+        appLinkVal = "?pid=landing_virtual&c=Meduza_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_meduza&utm_source=landing_page&utm_medium=media&utm_campaign=virtual_card_landing_meduza"
         break;
       case "rbc":
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_rbc&utm_source=landing_page&utm_medium=media&utm_campaign=virtual_card_landing_rbc"
+        appLinkVal = "?pid=landing_virtual&c=RBC_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_rbc&utm_source=landing_page&utm_medium=media&utm_campaign=virtual_card_landing_rbc"
         break;
       case "inc":
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_inc&utm_source=landing_page&utm_medium=media&utm_campaign=virtual_card_landing_inc"
+        appLinkVal = "?pid=landing_virtual&c=INC_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_inc&utm_source=landing_page&utm_medium=media&utm_campaign=virtual_card_landing_inc"
         break;
       case "yandex":
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_yandex&utm_source=landing_page&utm_medium=cpc&utm_campaign=virtual_card_landing_yandex"
+        appLinkVal = "?pid=landing_virtual&c=YandexAuction_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_yandex&utm_source=landing_page&utm_medium=cpc&utm_campaign=virtual_card_landing_yandex"
         break;
       case "email":
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_email_26_02&utm_source=landing_page&utm_medium=letter&utm_campaign=virtual_card_landing_email_26_02"
+        appLinkVal = "?pid=landing_virtual&c=Email_26_2_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_email_26_02&utm_source=landing_page&utm_medium=letter&utm_campaign=virtual_card_landing_email_26_02"
         break;
       case "vk_posts":
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_vk_posts&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_vk_posts"
+        appLinkVal = "?pid=landing_virtual&c=VK_posts_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_vk_posts&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_vk_posts"
         break;
       case "fb_posts":
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_fb_posts&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_fb_posts"
+        appLinkVal = "?pid=landing_virtual&c=FB_posts_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_fb_posts&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_fb_posts"
         break;
       case "vk_video":
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_vk_video&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_vk_video"
+        appLinkVal = "?pid=landing_virtual&c=VK_video_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_vk_video&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_vk_video"
         break;
       case "fb_video":
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_fb_video&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_fb_video"
+        appLinkVal = "?pid=landing_virtual&c=FB_video_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_fb_video&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_fb_video"
         break;
       case "spare":
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_spare&utm_source=landing_page&utm_medium=organic&utm_campaign=virtual_card_landing_spare"
+        appLinkVal = "?pid=landing_virtual&c=spare_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_spare&utm_source=landing_page&utm_medium=organic&utm_campaign=virtual_card_landing_spare"
         break;
       default:
-        logoLinkVal = ""
-        appstoreLinkVal = ""
-        googleLinkVal = ""
-        openLinkVal = "?platformId=landing_virtual_card_main&utm_source=landing_page&utm_medium=organic&utm_campaign=virtual_card_landing_main"
+        appLinkVal = "?pid=landing_virtual&c=main_landing_virtual"
+        siteLinkVal = "?platformId=landing_virtual_card_main&utm_source=landing_page&utm_medium=organic&utm_campaign=virtual_card_landing_main"
     }
 
-    logoLink.attr('href', logoLink.attr('href') + '/' + logoLinkVal );
-    appstoreLink.attr('href', appstoreLink.attr('href') + appstoreLinkVal );
-    googleLink.attr('href', googleLink.attr('href') + googleLinkVal );
-    openLink.attr('href', openLink.attr('href') + '/' + openLinkVal );
+    logoLink.attr('href', logoLink.attr('href') + '/' + siteLinkVal );
+    openLink.attr('href', openLink.attr('href') + '/' + siteLinkVal );
+    appstoreLink.attr('href', appstoreLink.attr('href') + appLinkVal );
+    googleLink.attr('href', googleLink.attr('href') + appLinkVal );
 
   }
 

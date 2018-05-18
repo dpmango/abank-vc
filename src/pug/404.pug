@@ -80,7 +80,7 @@ block content
           .info-for__text-el
             .info-for__text-icon
               +icon('ico-cart')
-            .info-for__text-content Оплата услуг<br><span class="br-mobile"></span>и покупки <br><span class="br-mobile"></span>в Интернете
+            .info-for__text-content Оплата услуг<br><span class="br-mobile"></span>и покупки <br><span class="br-mobile"></span>в интернете
           .info-for__text-el
             .info-for__text-icon
               +icon('ico-atm')
@@ -127,7 +127,7 @@ block content
                 .icon.icon-circle
                   span 3
               .step-nav__content
-                span.step-nav__name После открытия счёта <span class="br-mobile"></span>зайдите <br>в мобильный банк и выпустите карту.
+                span.step-nav__name После открытия счёта <span class="br-mobile"></span>зайдите <br>в мобильный банк<span class="br-mobile"></span> и выпустите карту.
             //el
             .step-nav__el(js-toggle-video data-video="3")
               .step-nav__icon
@@ -171,7 +171,7 @@ block content
             span Снятие наличных <span class="br-mobile"></span>в банкоматах Альфа-Банка
           
           #cashModal.mfp-hide.modal
-            .modal__heading Комиссия за снятие наличных в банкоматах, <br>суммарный объём
+            .modal__heading Комиссия за снятие наличных<span class="br-mobile"></span> в банкоматах, <br>суммарный объём
             table.modal__table
               thead
                 tr
@@ -193,7 +193,7 @@ block content
                 tr
                   td Свыше 5 000 000₽
                   td 10%
-            .modal__note Под суммарным объемом выдачи наличных денежных средств за отчетный период понимается объем денежных средств в валюте РФ, выданных накопительным итогом по чеку и / или по банковской карте.
+            .modal__note Под суммарным объемом выдачи наличных денежных <span class="br-mobile"></span>средств за отчетный период понимается объем денежных <span class="br-mobile"></span>средств в валюте РФ, выданных накопительным итогом <span class="br-mobile"></span>по чеку и / или по банковской карте.
   
   // BENEFITS
   .benefits
@@ -211,14 +211,14 @@ block content
             span(data-teleport-target="benefits-mobile-heading")
             .benefits__list
               .benefits__list-el
-                .benefits__list-name Управляйте бизнесом <span class="br-mobile"></span>в любое время
+                .benefits__list-name Держите бизнес <span class="br-mobile"></span>под контролем
                 .benefits__list-desc Актуальные остатки по счёту, история <span class="br-mobile"></span>операций, контроль <br>оборотных средств, <span class="br-mobile"></span>финансовая аналитика в удобном <span class="br-mobile"></span><br>формате — всегда под рукой.
               .benefits__list-el
-                .benefits__list-name Расплачивайтесь <span class="br-mobile"></span>с партнерами в 3 клика
+                .benefits__list-name Расплачивайтесь <span class="br-mobile"></span>с партнёрами в 3 клика
                 .benefits__list-desc Платежи юридическим и физическим <span class="br-mobile"></span>лицам, платежи <br>государству, повтор <span class="br-mobile"></span>платежей и платежи по шаблонам. <span class="br-mobile"></span><br>А также оплата счетов по файлу <span class="br-mobile"></span>или фото.
               .benefits__list-el
                 .benefits__list-name Ускоряйте бизнес
-                .benefits__list-desc Выставляйте счета партнерам <span class="br-mobile"></span>без сложных бухгалтерских <br>программ.<span class="br-mobile"></span> Отправляйте выписку бухгалтеру прямо <span class="br-mobile"></span><br>из приложения. Отправляйте <span class="br-mobile"></span>исполненные платежки <br>по почте.
+                .benefits__list-desc Выставляйте счета партнёрам <span class="br-mobile"></span>без сложных бухгалтерских <br>программ.<span class="br-mobile"></span> Отправляйте выписку бухгалтеру прямо <span class="br-mobile"></span><br>из приложения. Отправляйте <span class="br-mobile"></span>исполненные платёжки <br>по почте.
               .benefits__list-el
                 .benefits__list-name Решайте банковские <span class="br-mobile"></span>вопросы в чате
                 .benefits__list-desc Чат со специалистами банка прямо <span class="br-mobile"></span>в приложении, доступен <br>7 дней в неделю,<span class="br-mobile"></span> 24 часа в сутки. Решение любого вопроса <span class="br-mobile"></span><br>в течение нескольких минут.
@@ -236,11 +236,12 @@ block content
         .scope__left
           .scope__list
             .scope__list-el
-              .scope__list-name Обслуживание — от 490₽ в месяц
-              .scope__list-desc Или бесплатно, если нет оборотов, <span class="br-mobile"></span>с тарифом <br>для начинающих <span class="br-mobile"></span>предпринимателе «На старт».
+              .scope__list-name Обслуживание — от 490₽<span class="br-mobile"></span> в месяц
+              .scope__list-desc Или бесплатно, если нет оборотов, <span class="br-mobile"></span>с тарифом <br>для начинающих <span class="br-mobile"></span>предпринимателей «На старт».
             .scope__list-el
               .scope__list-name Длинный платёжный день
-              .scope__list-desc Проведение платежа день в день <span class="br-mobile"></span>круглосуточно,<br>и в выходные дни.
+              .scope__list-desc Проведение платежей день в день <span class="br-mobile"></span>круглосуточно <br>и даже в выходные дни
+              //- .scope__list-desc Проведение платежа день в день <span class="br-mobile"></span>круглосуточно,<br>и в выходные дни.
             .scope__list-el
               .scope__list-name Бесплатная бухгалтерия
               .scope__list-desc Автоматическая оплата налогов <span class="br-mobile"></span>для индивидуальных <br>предпринимателей <span class="br-mobile"></span>на УСН 6%.
