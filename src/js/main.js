@@ -11,6 +11,7 @@ $(document).ready(function(){
   // READY - triggered when PJAX DONE
   ////////////
   function pageReady(){
+    handleUTM();
     legacySupport();
     initPopups();
     initScrollMonitor();
@@ -40,6 +41,92 @@ $(document).ready(function(){
       refreshDebounceWait: 150,
       appendToBody: true
     });
+  }
+
+  // HANDLE UTM
+  function handleUTM(){
+    // selectors
+    var logoLink = $('[js-paste-link-logo]');
+    var appstoreLink = $('[js-paste-link-appstore]');
+    var googleLink = $('[js-paste-link-google]');
+    var openLink = $('[js-paste-link-open]');
+
+    var hrefRefer = window.location.pathname.slice(1);
+
+    var logoLinkVal, appstoreLinkVal, googleLinkVal, openLinkVal
+    switch (hrefRefer) {
+      case "meduza":
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_meduza&utm_source=landing_page&utm_medium=media&utm_campaign=virtual_card_landing_meduza"
+        break;
+      case "rbc":
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_rbc&utm_source=landing_page&utm_medium=media&utm_campaign=virtual_card_landing_rbc"
+        break;
+      case "inc":
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_inc&utm_source=landing_page&utm_medium=media&utm_campaign=virtual_card_landing_inc"
+        break;
+      case "yandex":
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_yandex&utm_source=landing_page&utm_medium=cpc&utm_campaign=virtual_card_landing_yandex"
+        break;
+      case "email":
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_email_26_02&utm_source=landing_page&utm_medium=letter&utm_campaign=virtual_card_landing_email_26_02"
+        break;
+      case "vk_posts":
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_vk_posts&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_vk_posts"
+        break;
+      case "fb_posts":
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_fb_posts&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_fb_posts"
+        break;
+      case "vk_video":
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_vk_video&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_vk_video"
+        break;
+      case "fb_video":
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_fb_video&utm_source=landing_page&utm_medium=social&utm_campaign=virtual_card_landing_fb_video"
+        break;
+      case "spare":
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_spare&utm_source=landing_page&utm_medium=organic&utm_campaign=virtual_card_landing_spare"
+        break;
+      default:
+        logoLinkVal = ""
+        appstoreLinkVal = ""
+        googleLinkVal = ""
+        openLinkVal = "?platformId=landing_virtual_card_main&utm_source=landing_page&utm_medium=organic&utm_campaign=virtual_card_landing_main"
+    }
+
+    logoLink.attr('href', logoLink.attr('href') + '/' + logoLinkVal );
+    appstoreLink.attr('href', appstoreLink.attr('href') + appstoreLinkVal );
+    googleLink.attr('href', googleLink.attr('href') + googleLinkVal );
+    openLink.attr('href', openLink.attr('href') + '/' + openLinkVal );
+
   }
 
   // smartbanner (app store, gplay)
