@@ -6,7 +6,7 @@ var fs     = require("fs");
 // in CL 'gulp server --open' to open current project in browser
 // in CL 'gulp server --tunnel siteName' to make project available over http://siteName.localtunnel.me
 
-var content_404 = fs.readFileSync(config.dest.html + '/404.html');
+// var content_404 = fs.readFileSync(config.dest.html + '/404.html');
 
 gulp.task('server', function() {
   server.init({
@@ -33,11 +33,11 @@ gulp.task('server', function() {
     online: true,
     tunnel: util.env.tunnel || null
   }, (err, bs) => {
-    bs.addMiddleware("*", (req, res) => {
-      // Provides the 404 content without redirect.
-      res.write(content_404);
-      res.end();
-    });
+    // bs.addMiddleware("*", (req, res) => {
+    //   // Provides the 404 content without redirect.
+    //   res.write(content_404);
+    //   res.end();
+    // });
   });
 });
 
