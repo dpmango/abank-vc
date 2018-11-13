@@ -13,14 +13,13 @@ $(document).ready(function(){
   function pageReady(){
     handleUTM();
     legacySupport();
-    initPopups();
+    initModals();
     initScrollMonitor();
-    initVideos();
     initVideos();
     _window.on('resize', debounce(initVideos, 200))
     initSmartBanner();
     initTeleport();
-
+    initMasks();
   }
 
   // this is a master function which should have all functionality
@@ -298,7 +297,7 @@ $(document).ready(function(){
   // MODALS
   //////////
 
-  function initPopups(){
+  function initModals(){
     // Magnific Popup
     var startWindowScroll = 0;
     $('[js-popup]').magnificPopup({
