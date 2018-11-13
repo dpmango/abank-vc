@@ -335,6 +335,138 @@ $(document).ready(function(){
   ////////////
   // UI
   ////////////
+  // Masked input
+  function initMasks(){
+    $("[js-cta-phone]").mask("000 000-00-00", {
+      // placeholder: "+7 (___) ___-____"
+    });
+  }
+
+  // CTA FORM LOGIC
+  var $form = $('[js-cta-form]')
+  var $formInput = $('[js-cta-phone]');
+  var $formCheckbox = $('[js-cta-checkbox]')
+  var $formButton = $('[js-cta-button]');
+
+  $form.on('change', function(e){
+
+  })
+  $form.on('submit', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+
+    if ( formIsValid() ){
+
+      var trimedPhone = "7" + $formInput.val().replace(/-|\s/g,"");
+
+      var leadParams = {
+        "phone": trimedPhone,
+        "advCode": "alfasite",
+        "platformId": getParameterByName("platformId") || "landing_abm_siz"
+        // дефолты для органического трафика
+        // для лендинга АБМ platformID - landing_abm_siz
+        // для виртуальной карты platformID - landing_virtual_card
+      }
+
+      $.ajax({
+        method: 'GET',
+        url: "https://anketa.alfabank.ru/ona/lead?userType=nc",
+        // url: 'https://cors-anywhere.herokuapp.com/https://anketa.alfabank.ru/ona/lead',
+        dataType: 'jsonp',
+        // contentType: "application/json",
+        data: leadParams
+      })
+      .done(function(res){
+        console.log('done', res)
+      })
+      .always(function(res) {
+        console.log("always", res);
+        window.location.href = "https://anketa.alfabank.ru/ona/auth/login"
+      });
+    }
+  })
+
+  // emulate focus triggers
+  $('.cta-form__input-wrapper').on('click', function(){
+    $formInput.focus();
+  })
+
+  $formInput.on('blur', function(e){ // blur is like focusout
+    // blur - remove focus if blank
+    $form.removeClass('is-bordered');
+
+    if ( $formInput.val().trim().length === 0 ){ // TODO - trim ?
+      $form.removeClass('is-focused')
+    } else {
+      $form.addClass('is-focused');
+    }
+  })
+
+  $formInput.on('focus', function(e){ // focus is like focusin
+    // focus - always visible
+    $form.addClass('is-focused');
+    $form.addClass('is-bordered');
+  })
+
+  $formInput.on('keyup', function(e){
+    controllButton();
+    toggleCheckbox();
+  })
+
+  $formCheckbox.on('change', function(){
+    controllButton();
+  })
+
+  function phoneIsValid(){
+    return $formInput.val().length === 13
+  }
+
+  function formIsValid(){
+    return phoneIsValid() && $formCheckbox.is(':checked')
+  }
+
+  function controllButton(){
+    if ( formIsValid() ){
+      $formButton.attr('disabled', false)
+      $form.addClass('is-valid')
+    } else {
+      $formButton.attr('disabled', true);
+      $form.removeClass('is-valid');
+    }
+  }
+
+  function toggleCheckbox(){
+    if ( phoneIsValid() ){
+      $form.addClass('is-phone-valid')
+      $formCheckbox.parent().fadeIn(250)
+    } else {
+      $form.removeClass('is-phone-valid')
+      $formCheckbox.parent().fadeOut(250)
+    }
+  }
+
+
+  $.fn.textWidth = function(text, font) {
+    if (!$.fn.textWidth.fakeEl) $.fn.textWidth.fakeEl = $('<span>').hide().appendTo(document.body);
+    $.fn.textWidth.fakeEl.text(text || this.val() || this.text() || this.attr('placeholder')).css('font', font || this.css('font'));
+    return $.fn.textWidth.fakeEl.width();
+  };
+
+  $('[js-cta-phone]').on('input', function() {
+    var inputWidth = Math.ceil($(this).textWidth()) + 1;
+
+    $(this).css({
+      width: inputWidth
+    })
+  }).trigger('input');
+
+
+  function inputWidth(elem, minW, maxW) {
+    elem = $(this);
+  }
+
+  inputWidth($('[js-cta-phone]'));
+
 
   ////////////
   // SCROLLMONITOR - WOW LIKE
@@ -456,5 +588,17 @@ $(document).ready(function(){
   //     }
   //   });
   // }
+
+
+  // HELPER FUNCTIONS
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
 
 });

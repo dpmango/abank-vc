@@ -14,15 +14,28 @@
         .hero__content
           a(href="https://alfabank.ru/sme" target="_blank" js-paste-link-logo).hero__logo.wow(data-animation-class="wowFadeDown")
             +icon('ico-logo')
+          .hero__app.wow(data-animation-delay=".2s" data-animation-class="wowFadeDown")
+            i.icon.icon-app-icon
           h1.hero__heading.wow(data-animation-delay=".2s" data-animation-class="wowFadeDown") Виртуальная карта VISA<span class="br-mobile"></span><br>за 60 секунд для оплаты <span class="br-mobile"></span><br>бизнес-расходов
           .hero__description.wow(data-animation-delay=".35s" data-animation-class="wowFadeDown") Полноценная карта, только без пластика <span class="br-mobile"></span><br> в приложении «Альфа-Бизнес Мобайл»
-          .hero__cta.wow(data-animation-delay=".5s" data-animation-class="wowFadeDown")
-            a(href="#" js-scrollTo data-scroll-to="issue-card").button.button_size_l
-              span Выпустить карту
-      
-      .hero__scroll(js-scrollTo data-scroll-to="second-block")
-        .hero__scroll-wrap
-          +icon('ico-scroll-arrow')
+          //- .hero__cta.wow(data-animation-delay=".5s" data-animation-class="wowFadeDown")
+          //-   a(href="#" js-scrollTo data-scroll-to="issue-card").button.button_size_l
+          //-     span Выпустить карту
+          
+          .hero__apps.wow(data-animation-delay=".65s" data-animation-class="wowFadeDown")
+            .app-icons
+              a(href="https://app.appsflyer.com/id555970430" target="_blank" js-paste-link-appstore)
+                i.icon.icon-appstore-logo
+              a(href="https://app.appsflyer.com/ru.alfabank.oavdo.amc" target="_blank" js-paste-link-google)
+                i.icon.icon-google-play-logo
+          
+          .hero__cta.wow(data-animation-delay=".85s" data-animation-class="wowFadeDown")
+            a(href="#" js-scrollTo data-scroll-to="cta-form").button.button_size_l.button--block
+              span Открыть счёт
+      //- 
+      //- .hero__scroll(js-scrollTo data-scroll-to="second-block")
+      //-   .hero__scroll-wrap
+      //-     +icon('ico-scroll-arrow')
 
 // info
 .info(data-target="second-block")
@@ -253,10 +266,35 @@
             .scope__list-name Удобный интернет-банк
             .scope__list-desc Работает на любом компьютере.
     
-    .scope__cta
-      a(href="https://alfabank.ru/sme/agent/virtual_card_rko" target="_blank" js-paste-link-open).button.button_size_l
-        span Открыть счёт в Альфа-Банке
+    //- .scope__cta
+    //-   a(href="https://alfabank.ru/sme/agent/virtual_card_rko" target="_blank" js-paste-link-open).button.button_size_l
+    //-     span Открыть счёт в Альфа-Банке
 
+    // CTA FORM - redirect to abank
+    .scope__cta.cta-form(data-target="cta-form")
+      .cta-form__wrapper
+        .cta-form__heading
+          h2.heading.heading_size_l Откройте счёт в&nbsp;Альфа-Банке прямо сейчас!
+          .cta-form__description Оставьте свой номер телефона и&nbsp;мы&nbsp;откроем Расчетный счет <br /> без визита в&nbsp;банк
+
+        form(js-cta-form).cta-form__form
+          .cta-form__input-wrapper
+            .cta-form__placeholder Ваш телефон
+            .cta-form__input
+              .cta-form__input-maskholder +7
+              input.cta-form__input-text(
+                autocomplete="off" autocorrect="off" autocapitalize="none"
+                type="tel" 
+                name="phone"
+                js-cta-phone)
+          .cta-form__checkbox
+            input(type="checkbox" id="agree" name="agree" checked js-cta-checkbox)
+            label(for="agree")
+              span Я&nbsp;согласен&nbsp;на&nbsp;
+                a(href="#policymodal" js-popup) обработку персональных данных
+          button(type="submit" js-cta-button disabled).button.button_size_l Отправить
+    
+    
 // FOOTER
 footer.footer
   .container.container--narrow
@@ -272,3 +310,11 @@ footer.footer
             i.icon.icon-social-vk
                       
         span ©2018 Альфа-Банк. Ген<i class="text-mobile">.</i><i class="text-desktop">еральная</i> лицензия ЦБ РФ №1326
+
+
+// MODAL
+#policymodal.mfp-hide.modal
+  .modal__text
+    p Я даю свое согласие АО&nbsp;&laquo;Альфа-Банк&raquo; (107078, г. Москва, ул. Каланчевская, д.27) (далее&nbsp;&mdash; Банк) на&nbsp;обработку моих персональных данных, предоставленных мной Банку в&nbsp;заявке на&nbsp;сайте банка, с&nbsp;использованием средств автоматизации и&nbsp;без использования таковых, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных и&nbsp;иные действия, предусмотренные Федеральным законом от&nbsp;27.07.2006 &#8470;&nbsp;152-ФЗ &laquo;О&nbsp;персональных данных&raquo; в&nbsp;целях: осуществления связи со&nbsp;мной для предоставления информации об&nbsp;услугах Банка, о&nbsp;порядке принятия на&nbsp;банковское обслуживание и&nbsp;иного взаимодействия, направленного на&nbsp;заключение договорных отношений.
+
+    p Предоставленные в&nbsp;Банк через заявку персональные данные подлежат уничтожению, либо обезличиванию по&nbsp;достижении указанных целей обработки или в&nbsp;случае утраты необходимости в&nbsp;достижении этих целей. Я&nbsp;понимаю и&nbsp;соглашаюсь с&nbsp;тем, что для прекращения использования Банком моих персональных данных, мне необходимо обратиться в&nbsp;Банк для оформления отзыва Согласия на&nbsp;обработку моих персональных данных.
