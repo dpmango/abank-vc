@@ -14,8 +14,10 @@ button
   position: relative
   text-align: center
   color: white
+  // background: #D4000F
+  border: 1px solid transparent
   background: rgba(240, 50, 38, .85)
-  border: 1px solid rgba(240, 50, 38, .85)
+  // border: 1px solid rgba(240, 50, 38, .85)
   margin: 0
   padding: 0
   cursor: pointer
@@ -36,7 +38,19 @@ button
     line-height: 48px
   &:hover
     background-color: rgba(240, 50, 38, 1)
-    border-color: rgba(240, 50, 38, 1)
+    // border-color: rgba(240, 50, 38, 1)
+
+  &[disabled]
+    // background-color: #ADADAD
+    background: rgba(240, 50, 38, .85)
+    cursor: not-allowed
+    &:hover
+      // background-color: #ADADAD
+      background: rgba(240, 50, 38, .85)
+
+  &--block
+    display: block
+    width: 100%
 
 +r($tablet)
   .button

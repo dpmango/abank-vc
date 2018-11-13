@@ -44,6 +44,32 @@
       size: 30px
 
 
+.app-icons
+  display: flex
+  align-items: center
+  font-size: 0
+  margin-top: 22px
+  a
+    display: inline-block
+    margin-right: 30px
+    cursor: pointer
+    transition: opacity .25s $ease
+    &:last-child
+      margin-right: 0
+    &:hover
+      opacity: .75
+  +r($tablet)
+    max-width: 230px
+    margin-top: 10px
+    margin-bottom: -5px
+    a
+      margin-right: 0
+      &:last-child
+        margin-left: 5px
+      .icon
+        transform-origin: left center
+        transform: scale(.9)
+        
 .plato
   margin-top: 45px
   margin-bottom: 70px

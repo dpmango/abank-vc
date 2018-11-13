@@ -1,28 +1,46 @@
 $sprite: (
+	1appstore-logo: (
+		offset-x: -149px,
+		offset-y: 0px,
+		width: 143px,
+		height: 40px,
+		total-width: 342px,
+		total-height: 265px,
+		image: '../img/sprite.png'
+	),
+	1google-play-logo: (
+		offset-x: -149px,
+		offset-y: -50px,
+		width: 143px,
+		height: 40px,
+		total-width: 342px,
+		total-height: 265px,
+		image: '../img/sprite.png'
+	),
 	app-icon: (
 		offset-x: 0px,
 		offset-y: 0px,
 		width: 139px,
 		height: 139px,
-		total-width: 292px,
+		total-width: 342px,
 		total-height: 265px,
 		image: '../img/sprite.png'
 	),
 	apple-pay: (
 		offset-x: -76px,
-		offset-y: -149px,
+		offset-y: -199px,
 		width: 94px,
 		height: 39px,
-		total-width: 292px,
+		total-width: 342px,
 		total-height: 265px,
 		image: '../img/sprite.png'
 	),
 	appstore-logo: (
-		offset-x: -149px,
-		offset-y: 0px,
-		width: 143px,
+		offset-x: -145px,
+		offset-y: -149px,
+		width: 120px,
 		height: 40px,
-		total-width: 292px,
+		total-width: 342px,
 		total-height: 265px,
 		image: '../img/sprite.png'
 	),
@@ -31,43 +49,43 @@ $sprite: (
 		offset-y: -100px,
 		width: 98px,
 		height: 39px,
-		total-width: 292px,
+		total-width: 342px,
 		total-height: 265px,
 		image: '../img/sprite.png'
 	),
 	google-play-logo: (
-		offset-x: -149px,
-		offset-y: -50px,
-		width: 143px,
+		offset-x: 0px,
+		offset-y: -149px,
+		width: 135px,
 		height: 40px,
-		total-width: 292px,
+		total-width: 342px,
 		total-height: 265px,
 		image: '../img/sprite.png'
 	),
 	samsung-pay: (
 		offset-x: 0px,
-		offset-y: -149px,
+		offset-y: -199px,
 		width: 66px,
 		height: 66px,
-		total-width: 292px,
+		total-width: 342px,
 		total-height: 265px,
 		image: '../img/sprite.png'
 	),
 	social-facebook: (
-		offset-x: 0px,
-		offset-y: -225px,
+		offset-x: -302px,
+		offset-y: 0px,
 		width: 40px,
 		height: 40px,
-		total-width: 292px,
+		total-width: 342px,
 		total-height: 265px,
 		image: '../img/sprite.png'
 	),
 	social-vk: (
-		offset-x: -50px,
-		offset-y: -225px,
+		offset-x: -302px,
+		offset-y: -50px,
 		width: 40px,
 		height: 40px,
-		total-width: 292px,
+		total-width: 342px,
 		total-height: 265px,
 		image: '../img/sprite.png'
 	),
@@ -127,6 +145,12 @@ $sprite: (
 
 
 
+	.icon-1appstore-logo {
+		@include sprite(1appstore-logo)
+	}
+	.icon-1google-play-logo {
+		@include sprite(1google-play-logo)
+	}
 	.icon-app-icon {
 		@include sprite(app-icon)
 	}

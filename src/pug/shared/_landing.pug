@@ -4,6 +4,8 @@
   .container
     .hero__wrapper
       .hero__left
+        a(href="https://alfabank.ru/sme" target="_blank" js-paste-link-logo).hero__logo.wow(data-animation-class="wowFadeDown")
+          +icon('ico-logo')
         .hero__image
           .hero__phone.wow(data-animation-delay="1.5s" data-animation-class="wowFadeDown")
             img(alt="" src='img/hero-phone.png' srcset='img/hero-phone@2x.png 2x')
@@ -12,8 +14,8 @@
                 
       .hero__right
         .hero__content
-          a(href="https://alfabank.ru/sme" target="_blank" js-paste-link-logo).hero__logo.wow(data-animation-class="wowFadeDown")
-            +icon('ico-logo')
+          //- a(href="https://alfabank.ru/sme" target="_blank" js-paste-link-logo).hero__logo.wow(data-animation-class="wowFadeDown")
+          //-   +icon('ico-logo')
           .hero__app.wow(data-animation-delay=".2s" data-animation-class="wowFadeDown")
             i.icon.icon-app-icon
           h1.hero__heading.wow(data-animation-delay=".2s" data-animation-class="wowFadeDown") Виртуальная карта VISA<span class="br-mobile"></span><br>за 60 секунд для оплаты <span class="br-mobile"></span><br>бизнес-расходов
