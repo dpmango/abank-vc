@@ -346,6 +346,12 @@ $(document).ready(function(){
   var $formInput = $('[js-cta-phone]');
   var $formCheckbox = $('[js-cta-checkbox]')
   var $formButton = $('[js-cta-button]');
+  var formIsSubmited = false
+
+  // $formInput.attr("autocomplete","off");
+  // $(':input').on('focus',function(){
+  //   $(this).attr('autocomplete', 'off');
+  // });
 
   $form.on('change', function(e){
 
@@ -367,6 +373,9 @@ $(document).ready(function(){
         // для виртуальной карты platformID - landing_virtual_card
       }
 
+      if ( formIsSubmited ) return
+      formIsSubmited = true
+      console.log('submitting form')
       $.ajax({
         method: 'GET',
         url: "https://anketa.alfabank.ru/ona/lead?userType=nc",
@@ -380,7 +389,9 @@ $(document).ready(function(){
       })
       .always(function(res) {
         console.log("always", res);
+        formIsSubmited = false
         window.location.href = "https://anketa.alfabank.ru/ona/auth/login"
+        // window.location.href = "https://anketa.alfabank.ru/ona/auth/login"
       });
     }
   })
@@ -453,6 +464,11 @@ $(document).ready(function(){
 
   $('[js-cta-phone]').on('input', function() {
     var inputWidth = Math.ceil($(this).textWidth()) + 1;
+
+    // clearable with backspace
+    if ( $(this).val() === "" ){
+      inputWidth = 0
+    }
 
     $(this).css({
       width: inputWidth

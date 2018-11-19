@@ -279,15 +279,18 @@
           h2.heading.heading_size_l Откройте счёт в&nbsp;Альфа-Банке прямо сейчас!
           .cta-form__description Оставьте свой номер телефона и&nbsp;мы&nbsp;откроем Расчетный счет <br /> без визита в&nbsp;банк
 
-        form(js-cta-form).cta-form__form
+        form(js-cta-form autocomplete="off").cta-form__form
           .cta-form__input-wrapper
             .cta-form__placeholder Ваш телефон
             .cta-form__input
               .cta-form__input-maskholder +7
               input.cta-form__input-text(
-                autocomplete="off" autocorrect="off" autocapitalize="none"
-                type="tel" 
-                name="phone"
+                autocomplete="new-password"
+                autocorrect="off"
+                autocapitalize="none"
+                type="text" 
+                id="oskdjgljsdhg"
+                name="oskdjgljsdhg"
                 js-cta-phone)
           .cta-form__checkbox
             input(type="checkbox" id="agree" name="agree" checked js-cta-checkbox)
