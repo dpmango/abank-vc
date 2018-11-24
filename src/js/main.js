@@ -367,7 +367,7 @@ $(document).ready(function(){
       var leadParams = {
         "phone": trimedPhone,
         "advCode": "alfasite",
-        "platformId": getParameterByName("platformId") || "landing_abm_siz"
+        "platformId": getParameterByName("platformId") || "landing_virtual_card"
         // дефолты для органического трафика
         // для лендинга АБМ platformID - landing_abm_siz
         // для виртуальной карты platformID - landing_virtual_card
