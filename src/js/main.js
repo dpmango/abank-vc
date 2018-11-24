@@ -348,6 +348,11 @@ $(document).ready(function(){
   var $formCheckbox = $('[js-cta-checkbox]')
   var $formButton = $('[js-cta-button]');
 
+  // $formInput.attr("autocomplete","off");
+  // $(':input').on('focus',function(){
+  //   $(this).attr('autocomplete', 'off');
+  // });
+
   $form.on('change', function(e){
 
   })
@@ -462,6 +467,11 @@ $(document).ready(function(){
 
   $('[js-cta-phone]').on('input', function() {
     var inputWidth = Math.ceil($(this).textWidth()) + 1;
+
+    // clearable with backspace
+    if ( $(this).val() === "" ){
+      inputWidth = 0
+    }
 
     $(this).css({
       width: inputWidth
