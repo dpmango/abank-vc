@@ -278,7 +278,14 @@
         .cta-form__heading
           h2.heading.heading_size_l Откройте счёт в&nbsp;Альфа-Банке прямо сейчас!
           .cta-form__description Оставьте свой номер телефона и&nbsp;мы&nbsp;откроем Расчетный счет <br /> без визита в&nbsp;банк
-
+        
+        // hidden form
+        form.cta-form__hidden-form(js-cta-form-submit action="https://anketa.alfabank.ru/ona/lead" method="POST")
+          input(name="phone" type="hidden")
+          input(name="alfasite" type="hidden")
+          input(name="platformId" type="hidden")
+        
+        // client side form
         form(js-cta-form).cta-form__form
           .cta-form__input-wrapper
             .cta-form__placeholder Ваш телефон

@@ -342,7 +342,8 @@ $(document).ready(function(){
   }
 
   // CTA FORM LOGIC
-  var $form = $('[js-cta-form]')
+  var $form = $('[js-cta-form]');
+  var $formSubmiter = $('[js-cta-form-submit]');
   var $formInput = $('[js-cta-phone]');
   var $formCheckbox = $('[js-cta-checkbox]')
   var $formButton = $('[js-cta-button]');
@@ -367,21 +368,29 @@ $(document).ready(function(){
         // для виртуальной карты platformID - landing_virtual_card
       }
 
-      $.ajax({
-        method: 'GET',
-        url: "https://anketa.alfabank.ru/ona/lead?userType=nc",
-        // url: 'https://cors-anywhere.herokuapp.com/https://anketa.alfabank.ru/ona/lead',
-        dataType: 'jsonp',
-        // contentType: "application/json",
-        data: leadParams
-      })
-      .done(function(res){
-        console.log('done', res)
-      })
-      .always(function(res) {
-        console.log("always", res);
-        window.location.href = "https://anketa.alfabank.ru/ona/auth/login"
-      });
+      // populate hidden form params
+      $formSubmiter.find('input[name="phone"]').val(leadParams.phone)
+      $formSubmiter.find('input[name="advCode"]').val(leadParams.advCode)
+      $formSubmiter.find('input[name="platformId"]').val(leadParams.platformId)
+
+      $formSubmiter.submit();
+
+      // removed - CORS redirect issue unsolved
+      // $.ajax({
+      //   method: 'GET',
+      //   url: "https://anketa.alfabank.ru/ona/lead?userType=nc",
+      //   // url: 'https://cors-anywhere.herokuapp.com/https://anketa.alfabank.ru/ona/lead',
+      //   dataType: 'jsonp',
+      //   // contentType: "application/json",
+      //   data: leadParams
+      // })
+      // .done(function(res){
+      //   console.log('done', res)
+      // })
+      // .always(function(res) {
+      //   console.log("always", res);
+      //   window.location.href = "https://anketa.alfabank.ru/ona/auth/login"
+      // });
     }
   })
 
